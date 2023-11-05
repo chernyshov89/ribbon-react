@@ -1,4 +1,57 @@
+import iconCancel from './img/sprite.svg#icon-cancel';
+import iconMenu from './img/sprite.svg#icon-menu';
+
+import headerImg from './img/hero-image.png';
+import techcrunchLogo from './img/techcrunch-logo.png';
+import allthingsLogo from './img/allthings-logo.png';
+import wsjLogo from './img/wsj-logo.png';
+import usatodeyLogo from './img/usatoday-logo.png';
+import inmanLogo from './img/inman-logo.png';
+
+import houseImg from './img/house.png';
+import dollarIcon from './img/dollar-icon.png';
+import pencilIcon from './img/pencil-icon.png';
+import dollarInIcon from './img/dollar-in-icon.png';
+
+import agentPhoto from './img/agent-photo.jpeg';
+import dogPhoto from './img/dog.png';
+
+import arrowLeftIcon from './img/arrow-left.png';
+import arrowRightIcon from './img/arrow-right.png';
+import familyImg from './img/family.png';
+import slideLogo from './img/slide-logo.png';
+import slideLogo2 from './img/slide-logo-2.png';
+import readIcon from './img/read-icon.png';
+
+import AppStoreIcon from './img/app-store.png';
+import iphoneImg from './img/iphone.png';
+
+import footerLogo1 from './img/footer-logo--1.png';
+import footerLogo2 from './img/footer-logo--2.png';
+import facebookIcon from './img/facebook-icon.png';
+import instagramIcon from './img/instagram-icon.png';
+
+import { useState } from 'react';
+
+const empowerButton = [
+  "Buyer's agents",
+  'Buyers',
+  'Listing Agents',
+  'Sellers',
+  'Loan officers',
+];
+
 export default function App() {
+  const [purchasedCount, setPurchasedCount] = useState(7000);
+  const [agentsCount, setAgentsCount] = useState(30000);
+  const [buyingPowerCount, setBuyingPowerCount] = useState(5);
+
+  const [appStoreLogo, setAppStoreLogo] = useState(AppStoreIcon);
+
+  const [facebookLogo, setFaceBookLogo] = useState(facebookIcon);
+  const [instagramLogo, setInstagramLogo] = useState(instagramIcon);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
   return (
     <div>
       <header className="header">
@@ -34,10 +87,10 @@ export default function App() {
 
         <button className="btn-mobile-nav">
           <svg className="icon-mobile-nav" id="open">
-            <use href="img/sprite.svg#icon-menu"></use>
+            <use href={iconMenu}></use>
           </svg>
           <svg className="icon-mobile-nav" id="close">
-            <use href="img/sprite.svg#icon-cancel"></use>
+            <use href={iconCancel}></use>
           </svg>
         </button>
 
@@ -61,17 +114,13 @@ export default function App() {
             Featured in
           </h4>
           <div className="header__featuredin-logos">
-            <img src="./img/techcrunch-logo.png" alt="Feature In Logo 1" />
-            <img src="./img/allthings-logo.png" alt="Feature In Logo 2" />
-            <img src="./img/wsj-logo.png" alt="Feature In Logo 3" />
-            <img src="./img/usatoday-logo.png" alt="Feature In Logo 4" />
-            <img src="./img/inman-logo.png" alt="Feature In Logo 4" />
+            <img src={techcrunchLogo} alt="Feature In Logo 1" />
+            <img src={allthingsLogo} alt="Feature In Logo 2" />
+            <img src={wsjLogo} alt="Feature In Logo 3" />
+            <img src={usatodeyLogo} alt="Feature In Logo 4" />
+            <img src={inmanLogo} alt="Feature In Logo 4" />
           </div>
-          <img
-            src="./img/hero-image.png"
-            alt="header image"
-            className="header__img"
-          />
+          <img src={headerImg} alt="header image" className="header__img" />
         </div>
       </header>
 
@@ -82,7 +131,7 @@ export default function App() {
               Who we empower
             </h2>
             <div className="empower__tab-container">
-              <button
+              {/* <button
                 className="empower__tab empower__tab--1 empower__tab--active"
                 data-tab="1"
               >
@@ -99,13 +148,22 @@ export default function App() {
               </button>
               <button className="empower__tab empower__tab--5" data-tab="5">
                 Loan officers
-              </button>
+              </button> */}
+              {/* {empowerButton.map((button) => (
+                <button className="empower__tab">{button}</button>
+              ))} */}
+              {/* {empowerButton.map((btn) => (
+                <EmpowerButton btnObj={btn} />
+              ))} */}
+              {empowerButton.map((btn) => (
+                <EmpowerButton>{btn}</EmpowerButton>
+              ))}
             </div>
           </div>
 
           <div className="empower__content empower__content--1 empower__content--active">
             <div className="empower__img">
-              <img src="./img/house.png" alt="pair near house" />
+              <img src={houseImg} alt="pair near house" />
             </div>
             <div className="empower__text--container">
               <p className="empower__buyers-text">Buyer's agents</p>
@@ -125,19 +183,19 @@ export default function App() {
             <div className="empower__icon--container">
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-icon.png" alt="dollar-icon" />
+                  <img src={dollarIcon} alt="dollar-icon" />
                 </div>
                 <p>Keep Your Commission</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/pencil-icon.png" alt="pencil-icon" />
+                  <img src={pencilIcon} alt="pencil-icon" />
                 </div>
                 <p>Write More Winning Offers</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-in-icon.png" alt="dollar-in-icon" />
+                  <img src={dollarInIcon} alt="dollar-in-icon" />
                 </div>
                 <p>Guaranteed to Close</p>
               </div>
@@ -145,7 +203,7 @@ export default function App() {
           </div>
           <div className="empower__content empower__content--2">
             <div className="empower__img">
-              <img src="./img/house.png" alt="pair near house" />
+              <img src={houseImg} alt="pair near house" />
             </div>
             <div className="empower__text--container">
               <p className="empower__buyers-text">Buyers</p>
@@ -163,19 +221,19 @@ export default function App() {
             <div className="empower__icon--container">
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-icon.png" alt="dollar-icon" />
+                  <img src={dollarIcon} alt="dollar-icon" />
                 </div>
                 <p>Keep Your Commission</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/pencil-icon.png" alt="pencil-icon" />
+                  <img src={pencilIcon} alt="pencil-icon" />
                 </div>
                 <p>Write More Winning Offers</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-in-icon.png" alt="dollar-in-icon" />
+                  <img src={dollarInIcon} alt="dollar-in-icon" />
                 </div>
                 <p>Guaranteed to Close</p>
               </div>
@@ -184,7 +242,7 @@ export default function App() {
 
           <div className="empower__content empower__content--3">
             <div className="empower__img">
-              <img src="./img/house.png" alt="pair near house" />
+              <img src={houseImg} alt="pair near house" />
             </div>
             <div className="empower__text--container">
               <p className="empower__buyers-text">Listing Agents</p>
@@ -202,19 +260,19 @@ export default function App() {
             <div className="empower__icon--container">
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-icon.png" alt="dollar-icon" />
+                  <img src={dollarIcon} alt="dollar-icon" />
                 </div>
                 <p>Keep Your Commission</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/pencil-icon.png" alt="pencil-icon" />
+                  <img src={pencilIcon} alt="pencil-icon" />
                 </div>
                 <p>Write More Winning Offers</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-in-icon.png" alt="dollar-in-icon" />
+                  <img src={dollarInIcon} alt="dollar-in-icon" />
                 </div>
                 <p>Guaranteed to Close</p>
               </div>
@@ -223,7 +281,7 @@ export default function App() {
 
           <div className="empower__content empower__content--4">
             <div className="empower__img">
-              <img src="./img/house.png" alt="pair near house" />
+              <img src={houseImg} alt="pair near house" />
             </div>
             <div className="empower__text--container">
               <p className="empower__buyers-text">Sellers</p>
@@ -241,19 +299,19 @@ export default function App() {
             <div className="empower__icon--container">
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-icon.png" alt="dollar-icon" />
+                  <img src={dollarIcon} alt="dollar-icon" />
                 </div>
                 <p>Keep Your Commission</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/pencil-icon.png" alt="pencil-icon" />
+                  <img src={pencilIcon} alt="pencil-icon" />
                 </div>
                 <p>Write More Winning Offers</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-in-icon.png" alt="dollar-in-icon" />
+                  <img src={dollarInIcon} alt="dollar-in-icon" />
                 </div>
                 <p>Guaranteed to Close</p>
               </div>
@@ -262,7 +320,7 @@ export default function App() {
 
           <div className="empower__content empower__content--5">
             <div className="empower__img">
-              <img src="./img/house.png" alt="pair near house" />
+              <img src={houseImg} alt="pair near house" />
             </div>
             <div className="empower__text--container">
               <p className="empower__buyers-text">Loan officers</p>
@@ -280,19 +338,19 @@ export default function App() {
             <div className="empower__icon--container">
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-icon.png" alt="dollar-icon" />
+                  <img src={dollarIcon} alt="dollar-icon" />
                 </div>
                 <p>Keep Your Commission</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/pencil-icon.png" alt="pencil-icon" />
+                  <img src={pencilIcon} alt="pencil-icon" />
                 </div>
                 <p>Write More Winning Offers</p>
               </div>
               <div className="empower__icon--item">
                 <div className="empower__icon">
-                  <img src="./img/dollar-in-icon.png" alt="dollar-in-icon" />
+                  <img src={dollarInIcon} alt="dollar-in-icon" />
                 </div>
                 <p>Guaranteed to Close</p>
               </div>
@@ -313,7 +371,7 @@ export default function App() {
 
             <div className="testimonials__details">
               <img
-                src="./img/agent-photo.jpeg"
+                src={agentPhoto}
                 alt="agent photo"
                 className="testimonials__photo"
               />
@@ -326,21 +384,24 @@ export default function App() {
             </div>
             <button className="btn-white testimonials__btn">Learn More</button>
             <div className="testimonials__numbers">
-              <div className="testimonials__number">
-                <h5>7,000+</h5>
+              <div
+                className="testimonials__number"
+                onClick={() => setPurchasedCount(purchasedCount + 100)}
+              >
+                <h5>{purchasedCount}+</h5>
                 <p>Homes Purchased</p>
               </div>
               <div className="testimonials__number">
-                <h5>30,000+</h5>
+                <h5>{agentsCount}+</h5>
                 <p>Agents</p>
               </div>
               <div className="testimonials__number">
-                <h5>$5 B+</h5>
+                <h5>${buyingPowerCount} B+</h5>
                 <p>Buying Power</p>
               </div>
             </div>
 
-            <img src="./img/dog.png" alt="dog" className="testimonials__img" />
+            <img src={dogPhoto} alt="dog" className="testimonials__img" />
           </div>
         </section>
 
@@ -365,10 +426,10 @@ export default function App() {
             </div>
 
             <button className="slider__btn slider__btn--left">
-              <img src="./img/arrow-left.png" alt="arrow left" />
+              <img src={arrowLeftIcon} alt="arrow left" />
             </button>
             <button className="slider__btn slider__btn--right">
-              <img src="./img/arrow-right.png" alt="arrow right" />
+              <img src={arrowRightIcon} alt="arrow right" />
             </button>
           </div>
 
@@ -378,10 +439,10 @@ export default function App() {
                 <div className="story__left-side">
                   <div className="story__left-side--img-part">
                     <div className="story__img">
-                      <img src="./img/family.png" alt="family" />
+                      <img src={familyImg} alt="family" />
                     </div>
                     <div className="story__logo">
-                      <img src="./img/slide-logo.png" alt="logo" />
+                      <img src={slideLogo} alt="logo" />
                     </div>
                     <p className="story__location">Orlando, Fl</p>
                   </div>
@@ -389,7 +450,7 @@ export default function App() {
                   <div className="story__left-side--text-part">
                     <p className="story__homewon">home won with</p>
                     <div className="story__logo--2">
-                      <img src="./img/slide-logo-2.png" alt="logo" />
+                      <img src={slideLogo2} alt="logo" />
                     </div>
                     <div className="story__text-container">
                       <h5>The buyer</h5>
@@ -412,7 +473,7 @@ export default function App() {
                     Learn more
                   </button>
                   <div className="story__icon">
-                    <img src="./img/read-icon.png" alt="icon" />
+                    <img src={readIcon} alt="icon" />
                     <p>Read the success story</p>
                   </div>
                 </div>
@@ -424,10 +485,10 @@ export default function App() {
                 <div className="story__left-side">
                   <div className="story__left-side--img-part">
                     <div className="story__img">
-                      <img src="./img/family.png" alt="family" />
+                      <img src={familyImg} alt="family" />
                     </div>
                     <div className="story__logo">
-                      <img src="./img/slide-logo.png" alt="logo" />
+                      <img src={slideLogo} alt="logo" />
                     </div>
                     <p className="story__location">Orlando, Fl</p>
                   </div>
@@ -435,7 +496,7 @@ export default function App() {
                   <div className="story__left-side--text-part">
                     <p className="story__homewon">home won with</p>
                     <div className="story__logo--2">
-                      <img src="./img/slide-logo-2.png" alt="logo" />
+                      <img src={slideLogo2} alt="logo" />
                     </div>
                     <div className="story__text-container">
                       <h5>The buyer</h5>
@@ -458,7 +519,7 @@ export default function App() {
                     Learn more
                   </button>
                   <div className="story__icon">
-                    <img src="./img/read-icon.png" alt="icon" />
+                    <img src={readIcon} alt="icon" />
                     <p>Read the success story</p>
                   </div>
                 </div>
@@ -470,10 +531,10 @@ export default function App() {
                 <div className="story__left-side">
                   <div className="story__left-side--img-part">
                     <div className="story__img">
-                      <img src="./img/family.png" alt="family" />
+                      <img src={familyImg} alt="family" />
                     </div>
                     <div className="story__logo">
-                      <img src="./img/slide-logo.png" alt="logo" />
+                      <img src={slideLogo} alt="logo" />
                     </div>
                     <p className="story__location">Orlando, Fl</p>
                   </div>
@@ -481,7 +542,7 @@ export default function App() {
                   <div className="story__left-side--text-part">
                     <p className="story__homewon">home won with</p>
                     <div className="story__logo--2">
-                      <img src="./img/slide-logo-2.png" alt="logo" />
+                      <img src={slideLogo2} alt="logo" />
                     </div>
                     <div className="story__text-container">
                       <h5>The buyer</h5>
@@ -504,7 +565,7 @@ export default function App() {
                     Learn more
                   </button>
                   <div className="story__icon">
-                    <img src="./img/read-icon.png" alt="icon" />
+                    <img src={readIcon} alt="icon" />
                     <p>Read the success story</p>
                   </div>
                 </div>
@@ -525,11 +586,11 @@ export default function App() {
                 your mobile device.
               </p>
               <div className="app__store--logo">
-                <img src="./img/app-store.png" alt="app store" />
+                <img src={appStoreLogo} alt="app store" />
               </div>
             </div>
             <div className="app__img">
-              <img src="./img/iphone.png" alt="Phone" />
+              <img src={iphoneImg} alt="Phone" />
             </div>
           </div>
         </section>
@@ -538,7 +599,7 @@ export default function App() {
         <div className="footer">
           <div className="footer__navigation">
             <a href="#!" className="footer__logo">
-              <img src="./img/footer-logo--1.png" alt="logo" />
+              <img src={footerLogo1} alt="logo" />
             </a>
 
             <nav className="footer__col">
@@ -679,7 +740,7 @@ export default function App() {
           </div>
           <div className="footer__logos">
             <div className="footer__logo-secondary">
-              <img src="./img/footer-logo--2.png" alt="logo" />
+              <img src={footerLogo2} alt="logo" />
               <p className="footer__click-review">Click for Review</p>
             </div>
             <div className="footer__text">
@@ -688,17 +749,144 @@ export default function App() {
                 <p className="footer__text--privacy">Privacy</p>
               </div>
               <p className="footer__text--copyright">
-                Copyright <span className="year">2027</span> Ribbon Home Inc,
-                All Rights Reserved.
+                Copyright <span className="year">{currentYear}</span> Ribbon
+                Home Inc, All Rights Reserved.
               </p>
             </div>
             <div className="footer__socials">
-              <img src="./img/facebook-icon.png" alt="facebook icon" />
-              <img src="./img/instagram-icon.png" alt="instagram icon" />
+              <img src={instagramLogo} alt="facebook icon" />
+              <img src={facebookLogo} alt="instagram icon" />
             </div>
           </div>
         </div>
       </footer>
+      <Biography />
     </div>
   );
 }
+
+// function EmpowerButton({ btnObj }) {
+//   return <button className="empower__tab">{btnObj}</button>;
+// }
+
+function EmpowerButton({ children }) {
+  return <button className="empower__tab">{children}</button>;
+}
+
+const person = [
+  {
+    name: 'John',
+    age: 37,
+    city: 'London',
+    favoriteBooks: [
+      { author: 'Stephen King', book: 'Misery' },
+      { author: 'Rowling', book: 'Quidditch Through the Ages' },
+    ],
+  },
+  {
+    name: 'Alice',
+    age: 30,
+    city: 'New York',
+    favoriteBooks: [
+      { author: 'Stephen King', book: 'Outsider' },
+      { author: 'Rowling', book: 'The tales of beedle the bard' },
+    ],
+  },
+  {
+    name: 'Matilda',
+    age: 23,
+    city: 'Brooklyn',
+    favoriteBooks: [
+      { author: 'Stephen King', book: 'It' },
+      { author: 'Rowling', book: 'Harry Potter' },
+    ],
+  },
+];
+
+const tableStyle = {
+  border: '1px solid black',
+  borderCollapse: 'collapse',
+  padding: '3px 18px',
+  fontSize: '24px',
+};
+
+const boxStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '10px',
+};
+
+function Biography() {
+  const personTable = person;
+  const [personRow, setPersonRow] = useState([...personTable]);
+
+  const addRow = () => {
+    setPersonRow([
+      ...personRow,
+      personRow[Math.trunc(Math.random() * personRow.length)],
+    ]);
+  };
+
+  const addRowWithPushMethod = () => {
+    const newRow = [...personRow];
+    newRow.push(personRow[Math.trunc(Math.random() * personRow.length)]);
+    setPersonRow(newRow);
+  };
+
+  const deleteRow = () => {
+    const deleteRow = personRow.slice(0, personRow.length - 1);
+    setPersonRow(deleteRow);
+  };
+
+  return (
+    <div style={boxStyle}>
+      <table style={tableStyle}>
+        <thead>
+          <tr>
+            {Object.keys(person[0]).map((person, i) => (
+              <th style={tableStyle} key={i}>
+                {person}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {personRow.map((person) => (
+            <tr>
+              <td style={tableStyle}>{person.name}</td>
+              <td style={tableStyle}>{person.age}</td>
+              <td style={tableStyle}>{person.city}</td>
+              <td style={tableStyle}>
+                {person.favoriteBooks.map((book) => (
+                  <ul>
+                    <li>{`${book.author}: ${book.book}`}</li>
+                  </ul>
+                ))}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div style={boxStyle}>
+        <button onClick={addRowWithPushMethod}>Add Row</button>
+        <button onClick={deleteRow}>Delete Row</button>
+        <button
+          onClick={() =>
+            setPersonRow([...personRow.sort((a, b) => a.age - b.age)])
+          }
+        >
+          Sort Row
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// Завдання: На сторінці створити таблицю з біографією за роками.
+// Дані записати до масиву. Масив повинен складатися з об'єктів, щонайменше 2 рівня вкладеності.
+// Зробити сортування даних за кліком (без допомоги та за допомогою функцій сортування).
+// Додати дві кнопки, натисніть на першу додати новий елемент масиву,
+// і видалити його по кліку на другу.
+// Додати та прибрати елемент із об'єкта, вибрати елемент об'єкта за ключом.
+// Переписати частину об'єкта за допомогою spread оператора.

@@ -1,3 +1,5 @@
+import BiographyTable from './components/BiographyTable/BiographyTable';
+
 import iconCancel from './img/sprite.svg#icon-cancel';
 import iconMenu from './img/sprite.svg#icon-menu';
 
@@ -5,7 +7,7 @@ import headerImg from './img/hero-image.png';
 import techcrunchLogo from './img/techcrunch-logo.png';
 import allthingsLogo from './img/allthings-logo.png';
 import wsjLogo from './img/wsj-logo.png';
-import usatodeyLogo from './img/usatoday-logo.png';
+import usatodayLogo from './img/usatoday-logo.png';
 import inmanLogo from './img/inman-logo.png';
 
 import houseImg from './img/house.png';
@@ -39,6 +41,46 @@ const empowerButton = [
   'Listing Agents',
   'Sellers',
   'Loan officers',
+];
+
+const featuredInLogos = [
+  { logo: techcrunchLogo, alt: 'Feature In Logo 1' },
+  { logo: allthingsLogo, alt: 'Feature In Logo 2' },
+  { logo: wsjLogo, alt: 'Feature In Logo 3' },
+  { logo: usatodayLogo, alt: 'Feature In Logo 4' },
+  { logo: inmanLogo, alt: 'Feature In Logo 5' },
+];
+
+const empowerIconList = [
+  { icon: dollarIcon, alt: 'dollar-icon', name: 'Keep Your Commission' },
+  { icon: pencilIcon, alt: 'pencil-icon', name: 'Write More Winning Offers' },
+  { icon: dollarInIcon, alt: 'dollar-in-icon', name: 'Guaranteed to Close' },
+];
+
+const buttonSlider = [
+  { name: 'Turn an offer to all cash' },
+  { name: 'Buy before you sell' },
+  { name: 'Save an existing deal' },
+];
+
+const footerList = [
+  { name: 'Agents', links: ['Buying', 'Listing', 'IOS App', 'Get Certified'] },
+  {
+    name: 'Homebuyers',
+    links: [
+      'Buyers',
+      'Buy Before You Sell',
+      'New Construction',
+      'Rescue Your Closing',
+      'Sellers',
+    ],
+  },
+  { name: 'Partners', links: ['Lenders', 'Builders', 'Brokerages'] },
+  {
+    name: 'Resources',
+    links: ['Pricing', 'FAQs', 'How it works', 'Blog', 'Guides', 'Webinars'],
+  },
+  { name: 'About', links: ['Mission', 'Culture', 'Careers', 'Press'] },
 ];
 
 export default function App() {
@@ -114,11 +156,9 @@ export default function App() {
             Featured in
           </h4>
           <div className="header__featuredin-logos">
-            <img src={techcrunchLogo} alt="Feature In Logo 1" />
-            <img src={allthingsLogo} alt="Feature In Logo 2" />
-            <img src={wsjLogo} alt="Feature In Logo 3" />
-            <img src={usatodeyLogo} alt="Feature In Logo 4" />
-            <img src={inmanLogo} alt="Feature In Logo 4" />
+            {featuredInLogos.map(({ logo, alt }) => (
+              <img key={alt} src={logo} alt={alt} />
+            ))}
           </div>
           <img src={headerImg} alt="header image" className="header__img" />
         </div>
@@ -181,24 +221,14 @@ export default function App() {
             </div>
 
             <div className="empower__icon--container">
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarIcon} alt="dollar-icon" />
+              {empowerIconList.map(({ icon, alt, name }) => (
+                <div className="empower__icon--item">
+                  <div className="empower__icon">
+                    <img src={icon} alt={alt} />
+                  </div>
+                  <p>{name}</p>
                 </div>
-                <p>Keep Your Commission</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={pencilIcon} alt="pencil-icon" />
-                </div>
-                <p>Write More Winning Offers</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarInIcon} alt="dollar-in-icon" />
-                </div>
-                <p>Guaranteed to Close</p>
-              </div>
+              ))}
             </div>
           </div>
           <div className="empower__content empower__content--2">
@@ -219,24 +249,14 @@ export default function App() {
             </div>
 
             <div className="empower__icon--container">
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarIcon} alt="dollar-icon" />
+              {empowerIconList.map(({ icon, alt, name }) => (
+                <div className="empower__icon--item">
+                  <div className="empower__icon">
+                    <img src={icon} alt={alt} />
+                  </div>
+                  <p>{name}</p>
                 </div>
-                <p>Keep Your Commission</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={pencilIcon} alt="pencil-icon" />
-                </div>
-                <p>Write More Winning Offers</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarInIcon} alt="dollar-in-icon" />
-                </div>
-                <p>Guaranteed to Close</p>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -258,24 +278,14 @@ export default function App() {
             </div>
 
             <div className="empower__icon--container">
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarIcon} alt="dollar-icon" />
+              {empowerIconList.map(({ icon, alt, name }) => (
+                <div className="empower__icon--item">
+                  <div className="empower__icon">
+                    <img src={icon} alt={alt} />
+                  </div>
+                  <p>{name}</p>
                 </div>
-                <p>Keep Your Commission</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={pencilIcon} alt="pencil-icon" />
-                </div>
-                <p>Write More Winning Offers</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarInIcon} alt="dollar-in-icon" />
-                </div>
-                <p>Guaranteed to Close</p>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -297,24 +307,14 @@ export default function App() {
             </div>
 
             <div className="empower__icon--container">
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarIcon} alt="dollar-icon" />
+              {empowerIconList.map(({ icon, alt, name }) => (
+                <div className="empower__icon--item">
+                  <div className="empower__icon">
+                    <img src={icon} alt={alt} />
+                  </div>
+                  <p>{name}</p>
                 </div>
-                <p>Keep Your Commission</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={pencilIcon} alt="pencil-icon" />
-                </div>
-                <p>Write More Winning Offers</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarInIcon} alt="dollar-in-icon" />
-                </div>
-                <p>Guaranteed to Close</p>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -336,24 +336,14 @@ export default function App() {
             </div>
 
             <div className="empower__icon--container">
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarIcon} alt="dollar-icon" />
+              {empowerIconList.map(({ icon, alt, name }) => (
+                <div className="empower__icon--item">
+                  <div className="empower__icon">
+                    <img src={icon} alt={alt} />
+                  </div>
+                  <p>{name}</p>
                 </div>
-                <p>Keep Your Commission</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={pencilIcon} alt="pencil-icon" />
-                </div>
-                <p>Write More Winning Offers</p>
-              </div>
-              <div className="empower__icon--item">
-                <div className="empower__icon">
-                  <img src={dollarInIcon} alt="dollar-in-icon" />
-                </div>
-                <p>Guaranteed to Close</p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -411,7 +401,15 @@ export default function App() {
               Our solutions
             </h2>
             <div className="solution__btn-container">
-              <button
+              {buttonSlider.map(({ name }) => (
+                <button
+                  className="solution__btn solution__btn--active"
+                  data-solution="0"
+                >
+                  {name}
+                </button>
+              ))}
+              {/* <button
                 className="solution__btn solution__btn--active"
                 data-solution="0"
               >
@@ -422,7 +420,7 @@ export default function App() {
               </button>
               <button className="solution__btn" data-solution="2">
                 Save an existing deal
-              </button>
+              </button> */}
             </div>
 
             <button className="slider__btn slider__btn--left">
@@ -602,141 +600,20 @@ export default function App() {
               <img src={footerLogo1} alt="logo" />
             </a>
 
-            <nav className="footer__col">
-              <p className="footer__heading">Agents</p>
-              <ul className="footer__nav">
-                <li>
-                  <a href="#!" className="footer__link">
-                    Buying
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Listing
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    iOS App
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Get Certified
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <nav className="footer__col">
-              <p className="footer__heading">Homebuyers</p>
-              <ul className="footer__nav">
-                <li>
-                  <a href="#!" className="footer__link">
-                    Buyers
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Buy Before You Sell
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    New Construction
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Rescue Your Closing
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Sellers
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <nav className="footer__col">
-              <p className="footer__heading">Partners</p>
-              <ul className="footer__nav">
-                <li>
-                  <a href="#!" className="footer__link">
-                    Lenders
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Builders
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Brokerages
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <nav className="footer__col">
-              <p className="footer__heading">Resources</p>
-              <ul className="footer__nav">
-                <li>
-                  <a href="#!" className="footer__link">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    FAQs
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    How it works
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Guides
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Webinars
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <nav className="footer__col">
-              <p className="footer__heading">About</p>
-              <ul className="footer__nav">
-                <li>
-                  <a href="#!" className="footer__link">
-                    Mission
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Culture
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#!" className="footer__link">
-                    Press
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            {footerList.map(({ name, links }) => (
+              <nav className="footer__col">
+                <p className="footer__heading">{name}</p>
+                <ul className="footer__nav">
+                  {links.map((link) => (
+                    <li>
+                      <a href="#" className="footer__link">
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
           </div>
           <div className="footer__logos">
             <div className="footer__logo-secondary">
@@ -760,7 +637,7 @@ export default function App() {
           </div>
         </div>
       </footer>
-      <Biography />
+      <BiographyTable />
     </div>
   );
 }
@@ -772,121 +649,3 @@ export default function App() {
 function EmpowerButton({ children }) {
   return <button className="empower__tab">{children}</button>;
 }
-
-const person = [
-  {
-    name: 'John',
-    age: 37,
-    city: 'London',
-    favoriteBooks: [
-      { author: 'Stephen King', book: 'Misery' },
-      { author: 'Rowling', book: 'Quidditch Through the Ages' },
-    ],
-  },
-  {
-    name: 'Alice',
-    age: 30,
-    city: 'New York',
-    favoriteBooks: [
-      { author: 'Stephen King', book: 'Outsider' },
-      { author: 'Rowling', book: 'The tales of beedle the bard' },
-    ],
-  },
-  {
-    name: 'Matilda',
-    age: 23,
-    city: 'Brooklyn',
-    favoriteBooks: [
-      { author: 'Stephen King', book: 'It' },
-      { author: 'Rowling', book: 'Harry Potter' },
-    ],
-  },
-];
-
-const tableStyle = {
-  border: '1px solid black',
-  borderCollapse: 'collapse',
-  padding: '3px 18px',
-  fontSize: '24px',
-};
-
-const boxStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '10px',
-};
-
-function Biography() {
-  const personTable = person;
-  const [personRow, setPersonRow] = useState([...personTable]);
-
-  const addRow = () => {
-    setPersonRow([
-      ...personRow,
-      personRow[Math.trunc(Math.random() * personRow.length)],
-    ]);
-  };
-
-  const addRowWithPushMethod = () => {
-    const newRow = [...personRow];
-    newRow.push(personRow[Math.trunc(Math.random() * personRow.length)]);
-    setPersonRow(newRow);
-  };
-
-  const deleteRow = () => {
-    const deleteRow = personRow.slice(0, personRow.length - 1);
-    setPersonRow(deleteRow);
-  };
-
-  return (
-    <div style={boxStyle}>
-      <table style={tableStyle}>
-        <thead>
-          <tr>
-            {Object.keys(person[0]).map((person, i) => (
-              <th style={tableStyle} key={i}>
-                {person}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {personRow.map((person) => (
-            <tr>
-              <td style={tableStyle}>{person.name}</td>
-              <td style={tableStyle}>{person.age}</td>
-              <td style={tableStyle}>{person.city}</td>
-              <td style={tableStyle}>
-                {person.favoriteBooks.map((book) => (
-                  <ul>
-                    <li>{`${book.author}: ${book.book}`}</li>
-                  </ul>
-                ))}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div style={boxStyle}>
-        <button onClick={addRowWithPushMethod}>Add Row</button>
-        <button onClick={deleteRow}>Delete Row</button>
-        <button
-          onClick={() =>
-            setPersonRow([...personRow.sort((a, b) => a.age - b.age)])
-          }
-        >
-          Sort Row
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// Завдання: На сторінці створити таблицю з біографією за роками.
-// Дані записати до масиву. Масив повинен складатися з об'єктів, щонайменше 2 рівня вкладеності.
-// Зробити сортування даних за кліком (без допомоги та за допомогою функцій сортування).
-// Додати дві кнопки, натисніть на першу додати новий елемент масиву,
-// і видалити його по кліку на другу.
-// Додати та прибрати елемент із об'єкта, вибрати елемент об'єкта за ключом.
-// Переписати частину об'єкта за допомогою spread оператора.

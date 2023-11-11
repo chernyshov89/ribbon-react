@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import BiographyTable from './components/BiographyTable/BiographyTable';
 
 import iconCancel from './img/sprite.svg#icon-cancel';
@@ -33,7 +34,7 @@ import footerLogo2 from './img/footer-logo--2.png';
 import facebookIcon from './img/facebook-icon.png';
 import instagramIcon from './img/instagram-icon.png';
 
-import { useState } from 'react';
+const navLinks = ['Agents', 'Homebuyers', 'Resources', 'Log In', 'Sign Up Now'];
 
 const empowerButton = [
   "Buyer's agents",
@@ -99,7 +100,19 @@ export default function App() {
       <header className="header">
         <nav className="nav">
           <ul className="nav__links">
-            <li className="nav__item nav__item--active">
+            {navLinks.map((link, i) => (
+              <li className="nav__item">
+                <a
+                  href={`#section--${i + 1}`}
+                  className={`nav__link ${
+                    i === navLinks.length - 1 ? 'btn' : ''
+                  }`}
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+            {/* <li className="nav__item nav__item--active">
               <a href="#section--1" className="nav__link">
                 Agents
               </a>
@@ -123,16 +136,16 @@ export default function App() {
               <a href="#" className="nav__link btn">
                 Sign Up Now
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
 
         <button className="btn-mobile-nav">
           <svg className="icon-mobile-nav" id="open">
-            <use href={iconMenu}></use>
+            <use href={iconMenu} />
           </svg>
           <svg className="icon-mobile-nav" id="close">
-            <use href={iconCancel}></use>
+            <use href={iconCancel} />
           </svg>
         </button>
 
@@ -376,7 +389,11 @@ export default function App() {
             <div className="testimonials__numbers">
               <div
                 className="testimonials__number"
-                onClick={() => setPurchasedCount(purchasedCount + 100)}
+                onClick={() =>
+                  setPurchasedCount(
+                    (prevPurchasedCount) => prevPurchasedCount + 100
+                  )
+                }
               >
                 <h5>{purchasedCount}+</h5>
                 <p>Homes Purchased</p>
@@ -569,7 +586,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="dots"></div>
+            <div className="dots" />
           </div>
         </section>
 

@@ -1,34 +1,7 @@
+/* eslint-disable */
 import { useState } from 'react';
-
-const person = [
-  {
-    name: 'John',
-    age: 37,
-    city: 'London',
-    favoriteBooks: [
-      { author: 'Stephen King', book: 'Misery' },
-      { author: 'Rowling', book: 'Quidditch Through the Ages' },
-    ],
-  },
-  {
-    name: 'Alice',
-    age: 30,
-    city: 'New York',
-    favoriteBooks: [
-      { author: 'Stephen King', book: 'Outsider' },
-      { author: 'Rowling', book: 'The tales of beedle the bard' },
-    ],
-  },
-  {
-    name: 'Matilda',
-    age: 23,
-    city: 'Brooklyn',
-    favoriteBooks: [
-      { author: 'Stephen King', book: 'It' },
-      { author: 'Rowling', book: 'Harry Potter' },
-    ],
-  },
-];
+import person from '../../mocks/person';
+import BiographyTableView from './BiographyTableView';
 
 export default function BiographyTable() {
   const [personRow, setPersonRow] = useState(person);
@@ -72,40 +45,14 @@ export default function BiographyTable() {
   };
 
   return (
-    <div className="boxStyle">
-      <table className="tableStyle">
-        <thead>
-          <tr>
-            {Object.keys(person[0]).map((person, i) => (
-              <th className="tableStyle" key={i}>
-                {person}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {personRow.map((person, i) => (
-            <tr key={i}>
-              <td className="tableStyle">{person.name}</td>
-              <td className="tableStyle">{person.age}</td>
-              <td className="tableStyle">{person.city}</td>
-              <td className="tableStyle">
-                <ul>
-                  {person.favoriteBooks.map((book, i) => (
-                    <li key={i}>{`${book.author}: ${book.book}`}</li>
-                  ))}
-                </ul>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="boxStyle">
-        <button onClick={addRow}>Add Row</button>
-        <button onClick={deleteRow}>Delete Row</button>
-        <button onClick={sortWithoutSortMethod}>Sort Row</button>
-      </div>
-    </div>
+    <BiographyTableView
+      addRow={addRow}
+      addRowWithPushMethod={addRowWithPushMethod}
+      deleteRow={deleteRow}
+      sortWithSortMethod={sortWithSortMethod}
+      sortWithoutSortMethod={sortWithoutSortMethod}
+      personRow={personRow}
+    />
   );
 }
 

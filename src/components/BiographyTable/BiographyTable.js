@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useState } from 'react';
 import person from '../../mocks/person';
 import BiographyTableView from './BiographyTableView';

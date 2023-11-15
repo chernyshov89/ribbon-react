@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import arrowLeftIcon from '../../img/arrow-left.png';
 import arrowRightIcon from '../../img/arrow-right.png';
 import familyImg from '../../img/family.png';

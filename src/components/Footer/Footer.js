@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useState } from 'react';
 
 import footerLogo1 from '../../img/footer-logo--1.png';

@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import Header from './components/Header/Header';
 import SectionEmpower from './components/SectionEmpower/SectionEmpower';
 import SectionTestimonials from './components/SectionTestimonials/SectionTestimonials';

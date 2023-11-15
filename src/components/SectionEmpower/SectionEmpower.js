@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import houseImg from '../../img/house.png';
 import { empowerIconList } from '../../constants/general';
 

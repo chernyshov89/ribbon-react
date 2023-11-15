@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import Navigation from '../Navigation/Navigation';
 import { featuredInLogos } from '../../constants/general';
 import iconCancel from '../../img/sprite.svg#icon-cancel';

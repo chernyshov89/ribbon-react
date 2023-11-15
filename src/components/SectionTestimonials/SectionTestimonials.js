@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useState } from 'react';
 
 import agentPhoto from '../../img/agent-photo.jpeg';

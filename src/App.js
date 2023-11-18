@@ -6,11 +6,16 @@ import SectionApp from './components/SectionApp/SectionApp';
 import Footer from './components/Footer/Footer';
 import BiographyTable from './components/BiographyTable/BiographyTable';
 import Timer from './components/Timer/Timer';
+import { useState } from 'react';
 
 export default function App() {
+  const [isShow, setIsShow] = useState(false);
   return (
     <div>
-      <Timer />
+      <button onClick={() => setIsShow((prevIsShow) => !prevIsShow)}>
+        Timer
+      </button>
+      <Timer isStop={isShow} />
       <Header />
 
       <main>

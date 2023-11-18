@@ -4,6 +4,7 @@ import BiographyTableView from './BiographyTableView';
 
 export default function BiographyTable() {
   const [personRow, setPersonRow] = useState(person);
+  const [selectedRow, setSelectedRow] = useState(0);
 
   const addRow = () => {
     setPersonRow((prevPersonRow) => [
@@ -43,6 +44,17 @@ export default function BiographyTable() {
     setPersonRow(sortRow);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowDown' && selectedRow < personRow.length - 1) {
+      setSelectedRow((prevSelectedRow) => prevSelectedRow + 1);
+    }
+    if (e.key === 'ArrowUp' && selectedRow > 0) {
+      setSelectedRow((prevSelectedRow) => prevSelectedRow - 1);
+    }
+
+    console.log(selectedRow);
+  };
+
   return (
     <BiographyTableView
       addRow={addRow}
@@ -51,9 +63,19 @@ export default function BiographyTable() {
       sortWithSortMethod={sortWithSortMethod}
       sortWithoutSortMethod={sortWithoutSortMethod}
       personRow={personRow}
+      handleKeyDown={handleKeyDown}
+      selectedRow={selectedRow}
     />
   );
 }
+
+// -	Зробити набір гарячих клавіш для підсвічування активного списку (Таблиця з біографією).
+// -	По кліку робити елемент активним (підсвічувати бордер або змінювати колір шрифту)
+// по повторному кліку робити елемент неактивним.
+// -	Зробити перетягування елементів списку мишею,
+// щоб можна було змінювати порядок вручну (DragAndDrop).
+// -	Додати події load та error для картинки. І виводити в консоль якщо
+// картинка завантажилася або сталася помилка
 
 // Завдання: На сторінці створити таблицю з біографією за роками.
 // Дані записати до масиву. Масив повинен складатися з об'єктів, щонайменше 2 рівня вкладеності.

@@ -1,0 +1,21 @@
+.tableStyle {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 3px 18px;
+  font-size: 24px;
+}
+
+.boxStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.rowStyle {
+  background-color: white;
+}
+
+.selectedRow {
+  background-color: paleturquoise;
+}

@@ -1,3 +1,5 @@
+import styles from './BiographyTable.module.scss';
+
 export default function BiographyTableView({
   addRow,
   addRowWithPushMethod,
@@ -5,26 +7,36 @@ export default function BiographyTableView({
   sortWithSortMethod,
   sortWithoutSortMethod,
   personRow,
+  handleKeyDown,
+  selectedRow,
 }) {
   return (
-    <div className="boxStyle">
-      <table className="tableStyle">
+    <div className={styles.boxStyle}>
+      <table
+        className={styles.tableStyle}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+      >
         <thead>
           <tr>
             {Object.keys(personRow[0]).map((person, i) => (
-              <th className="tableStyle" key={i}>
+              <th className={styles.tableStyle} key={i}>
                 {person}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {personRow.map((person) => (
-            <tr>
-              <td className="tableStyle">{person.name}</td>
-              <td className="tableStyle">{person.age}</td>
-              <td className="tableStyle">{person.city}</td>
-              <td className="tableStyle">
+          {personRow.map((person, i) => (
+            <tr
+              className={`${
+                i === selectedRow ? styles.selectedRow : styles.rowStyle
+              }`}
+            >
+              <td className={styles.tableStyle}>{person.name}</td>
+              <td className={styles.tableStyle}>{person.age}</td>
+              <td className={styles.tableStyle}>{person.city}</td>
+              <td className={styles.tableStyle}>
                 <ul>
                   {person.favoriteBooks.map((book) => (
                     <FavoriteBook book={book} />
@@ -35,7 +47,7 @@ export default function BiographyTableView({
           ))}
         </tbody>
       </table>
-      <div className="boxStyle">
+      <div className={styles.boxStyle}>
         <button onClick={addRow}>Add Row</button>
         <button onClick={deleteRow}>Delete Row</button>
         <button onClick={sortWithoutSortMethod}>Sort Row</button>

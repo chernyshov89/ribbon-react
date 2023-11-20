@@ -5,6 +5,9 @@ import BiographyTableView from './BiographyTableView';
 export default function BiographyTable() {
   const [personRow, setPersonRow] = useState(person);
   const [selectedRow, setSelectedRow] = useState(0);
+  const [isTableData, setIsTableData] = useState(null);
+  const [isSelected, setIsSelected] = useState(true);
+  const [currentRow, setCurrentRow] = useState(null);
 
   const addRow = () => {
     setPersonRow((prevPersonRow) => [
@@ -55,6 +58,45 @@ export default function BiographyTable() {
     console.log(selectedRow);
   };
 
+  const handleOnClickTableData = (tableCell) => {
+    setIsTableData((prevIsTableData) => tableCell);
+    setIsSelected((prevIsSelected) => !prevIsSelected);
+
+    console.log(isTableData, isSelected);
+  };
+
+  function handleDragStart(e, tableRow) {
+    setCurrentRow(tableRow);
+    console.log('drag', tableRow);
+  }
+
+  function handleDragLeave() {}
+
+  function handleDragEnd(e) {}
+
+  function handleDragOver(e) {
+    e.preventDefault();
+  }
+
+  function handleDrop(e, tableRow) {
+    e.preventDefault();
+    setPersonRow(
+      personRow.map((person) => {
+        if (person.id === tableRow.id) {
+          return currentRow;
+        }
+
+        if (person.id === currentRow.id) {
+          return tableRow;
+        }
+
+        return person;
+      })
+    );
+
+    console.log('drop', tableRow);
+  }
+
   return (
     <BiographyTableView
       addRow={addRow}
@@ -65,6 +107,14 @@ export default function BiographyTable() {
       personRow={personRow}
       handleKeyDown={handleKeyDown}
       selectedRow={selectedRow}
+      handleOnClickTableData={handleOnClickTableData}
+      isTableData={isTableData}
+      isSelected={isSelected}
+      handleDragStart={handleDragStart}
+      handleDragLeave={handleDragLeave}
+      handleDragEnd={handleDragEnd}
+      handleDragOver={handleDragOver}
+      handleDrop={handleDrop}
     />
   );
 }

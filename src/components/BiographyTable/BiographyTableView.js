@@ -9,6 +9,14 @@ export default function BiographyTableView({
   personRow,
   handleKeyDown,
   selectedRow,
+  handleOnClickTableData,
+  isTableData,
+  isSelected,
+  handleDragStart,
+  handleDragLeave,
+  handleDragEnd,
+  handleDragOver,
+  handleDrop,
 }) {
   return (
     <div className={styles.boxStyle}>
@@ -19,24 +27,69 @@ export default function BiographyTableView({
       >
         <thead>
           <tr>
-            {Object.keys(personRow[0]).map((person, i) => (
+            {/* {Object.keys(personRow[0]).map((person, i) => (
               <th className={styles.tableStyle} key={i}>
                 {person}
               </th>
-            ))}
+            ))} */}
+            <th className={styles.tableStyle}>Name</th>
+            <th className={styles.tableStyle}>Age</th>
+            <th className={styles.tableStyle}>City</th>
+            <th className={styles.tableStyle}>Favorite Books</th>
           </tr>
         </thead>
+
         <tbody>
           {personRow.map((person, i) => (
             <tr
               className={`${
                 i === selectedRow ? styles.selectedRow : styles.rowStyle
               }`}
+              draggable={true}
+              onDragStart={(e) => handleDragStart(e, person)}
+              onDragLeave={(e) => handleDragLeave(e)}
+              onDragEnd={(e) => handleDragEnd(e)}
+              onDragOver={(e) => handleDragOver(e)}
+              onDrop={(e) => handleDrop(e, person)}
             >
-              <td className={styles.tableStyle}>{person.name}</td>
-              <td className={styles.tableStyle}>{person.age}</td>
-              <td className={styles.tableStyle}>{person.city}</td>
-              <td className={styles.tableStyle}>
+              <td
+                className={`${styles.tableStyle} ${
+                  isSelected && isTableData === person.name
+                    ? styles.tableCell
+                    : ''
+                }`}
+                onClick={() => handleOnClickTableData(person.name)}
+              >
+                {person.name}
+              </td>
+              <td
+                className={`${styles.tableStyle} ${
+                  isSelected && isTableData === person.age
+                    ? styles.tableCell
+                    : ''
+                }`}
+                onClick={() => handleOnClickTableData(person.age)}
+              >
+                {person.age}
+              </td>
+              <td
+                className={`${styles.tableStyle} ${
+                  isSelected && isTableData === person.city
+                    ? styles.tableCell
+                    : ''
+                }`}
+                onClick={() => handleOnClickTableData(person.city)}
+              >
+                {person.city}
+              </td>
+              <td
+                className={`${styles.tableStyle} ${
+                  isSelected && isTableData === person.favoriteBooks
+                    ? styles.tableCell
+                    : ''
+                }`}
+                onClick={() => handleOnClickTableData(person.favoriteBooks)}
+              >
                 <ul>
                   {person.favoriteBooks.map((book) => (
                     <FavoriteBook book={book} />

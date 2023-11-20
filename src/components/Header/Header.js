@@ -4,8 +4,19 @@ import iconCancel from '../../img/sprite.svg#icon-cancel';
 import iconMenu from '../../img/sprite.svg#icon-menu';
 
 import headerImg from '../../img/hero-image.png';
+import { useState } from 'react';
 
 export default function Header() {
+  const [imageError, setImageError] = useState(false);
+
+  function handleImageError() {
+    setImageError((prevImageError) => !prevImageError);
+  }
+
+  function handleImageLoad() {
+    console.log('Image is loaded');
+  }
+
   return (
     <header className="header">
       <Navigation />
@@ -41,8 +52,26 @@ export default function Header() {
             <img key={alt} src={logo} alt={alt} />
           ))}
         </div>
-        <img src={headerImg} alt="header image" className="header__img" />
+        {!imageError ? (
+          <img
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+            src={headerImg}
+            alt="House with happy families"
+            className="header__img"
+          />
+        ) : (
+          console.log('Error')
+        )}
       </div>
     </header>
   );
 }
+
+<img
+  src={headerImg}
+  alt="House with happy families"
+  onLoad={() => console.log('Image is loaded')}
+  onError={() => console.log('Image is loaded')}
+  className="header__img"
+/>;

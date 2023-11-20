@@ -1,5 +1,6 @@
 const person = [
   {
+    id: 1,
     name: 'John',
     age: 37,
     city: 'London',
@@ -9,6 +10,7 @@ const person = [
     ],
   },
   {
+    id: 2,
     name: 'Alice',
     age: 30,
     city: 'New York',
@@ -18,6 +20,7 @@ const person = [
     ],
   },
   {
+    id: 3,
     name: 'Matilda',
     age: 23,
     city: 'Brooklyn',

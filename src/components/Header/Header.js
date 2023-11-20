@@ -67,11 +67,3 @@ export default function Header() {
     </header>
   );
 }
-
-<img
-  src={headerImg}
-  alt="House with happy families"
-  onLoad={() => console.log('Image is loaded')}
-  onError={() => console.log('Image is loaded')}
-  className="header__img"
-/>;

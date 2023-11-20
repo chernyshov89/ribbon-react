@@ -54,20 +54,15 @@ export default function BiographyTable() {
     if (e.key === 'ArrowUp' && selectedRow > 0) {
       setSelectedRow((prevSelectedRow) => prevSelectedRow - 1);
     }
-
-    console.log(selectedRow);
   };
 
   const handleOnClickTableData = (tableCell) => {
     setIsTableData((prevIsTableData) => tableCell);
     setIsSelected((prevIsSelected) => !prevIsSelected);
-
-    console.log(isTableData, isSelected);
   };
 
   function handleDragStart(e, tableRow) {
     setCurrentRow(tableRow);
-    console.log('drag', tableRow);
   }
 
   function handleDragLeave() {}
@@ -93,8 +88,6 @@ export default function BiographyTable() {
         return person;
       })
     );
-
-    console.log('drop', tableRow);
   }
 
   return (

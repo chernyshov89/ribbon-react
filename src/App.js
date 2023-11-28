@@ -6,7 +6,7 @@ import SectionApp from './components/SectionApp/SectionApp';
 import Footer from './components/Footer/Footer';
 import BiographyTable from './components/BiographyTable/BiographyTable';
 import Timer from './components/Timer/Timer';
-import CountyTable from './components/CountryTable/CountryTable';
+import CountryTable from './components/CountryTable/CountryTable';
 import { useState } from 'react';
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
       </main>
       <Footer />
       <BiographyTable />
-      <CountyTable />
+      <CountryTable />
     </div>
   );
 }

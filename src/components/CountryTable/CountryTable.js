@@ -26,7 +26,7 @@ export default function CountryTable() {
     };
 
     countryData();
-  }, [countryNames]);
+  }, []);
 
   return (
     <div className={styles.boxStyle}>

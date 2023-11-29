@@ -10,7 +10,7 @@ export default function Header() {
   const [imageError, setImageError] = useState(false);
 
   function handleImageError() {
-    setImageError((prevImageError) => !prevImageError);
+    setImageError(true);
   }
 
   function handleImageLoad() {

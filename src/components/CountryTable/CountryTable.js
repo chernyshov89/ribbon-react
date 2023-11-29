@@ -11,11 +11,20 @@ export default function CountryTable() {
       try {
         const countriesData = await Promise.all(
           countryNames.map(async (country) => {
-            const res = await fetch(
-              `https://restcountries.com/v3.1/name/${country}`
-            );
-            const data = await res.json();
-            return data[0];
+            try {
+              const res = await fetch(
+                `https://restcountries.com/v3.1/name/${country}`
+              );
+              const [data] = await res.json();
+
+              if (!res.ok) {
+                throw new Error(`ERROR ❌  ${res.status}`);
+              }
+
+              return data;
+            } catch (err) {
+              console.error(`Error for ${country}`, err);
+            }
           })
         );
 
@@ -40,13 +49,13 @@ export default function CountryTable() {
           </tr>
         </thead>
         <tbody>
-          {dataCountry.map((country) => (
+          {dataCountry.map(({ name, flag, capital, population }) => (
             <tr>
-              <td className={styles.tableStyle}>{country.name.common}</td>
-              <td className={styles.tableStyle}>{country.flag}</td>
-              <td className={styles.tableStyle}>{country.capital}</td>
+              <td className={styles.tableStyle}>{name.common}</td>
+              <td className={styles.tableStyle}>{flag}</td>
+              <td className={styles.tableStyle}>{capital}</td>
               <td className={styles.tableStyle}>
-                {country.population.toLocaleString('en-EN')}
+                {population.toLocaleString('en-EN')}
               </td>
             </tr>
           ))}

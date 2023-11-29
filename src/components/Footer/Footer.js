@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import FooterLinkView from './FooterLinkView';
+
 import footerLogo1 from '../../img/footer-logo--1.png';
 import footerLogo2 from '../../img/footer-logo--2.png';
 import facebookIcon from '../../img/facebook-icon.png';
@@ -71,19 +73,9 @@ function FooterItem({ name, links }) {
       <p className="footer__heading">{name}</p>
       <ul className="footer__nav">
         {links.map((link) => (
-          <FooterLink link={link} />
+          <FooterLinkView link={link} />
         ))}
       </ul>
     </nav>
-  );
-}
-
-function FooterLink({ link }) {
-  return (
-    <li>
-      <a href="#" className="footer__link">
-        {link}
-      </a>
-    </li>
   );
 }

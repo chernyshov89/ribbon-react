@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import person from '../../mocks/person';
+import { arrowUp, arrowDown } from '../../constants/hotkey';
 import BiographyTableView from './BiographyTableView';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function BiographyTable() {
   const [personRow, setPersonRow] = useState(person);
@@ -9,10 +11,15 @@ export default function BiographyTable() {
   const [isSelected, setIsSelected] = useState(true);
   const [currentRow, setCurrentRow] = useState(null);
 
+  const [selectedId, setSelectedId] = useState(null);
+
   const addRow = () => {
     setPersonRow((prevPersonRow) => [
       ...prevPersonRow,
-      prevPersonRow[Math.trunc(Math.random() * prevPersonRow.length)],
+      {
+        ...prevPersonRow[Math.trunc(Math.random() * prevPersonRow.length)],
+        id: uuidv4(),
+      },
     ]);
   };
 
@@ -48,17 +55,18 @@ export default function BiographyTable() {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'ArrowDown' && selectedRow < personRow.length - 1) {
+    if (e.key === arrowDown && selectedRow < personRow.length - 1) {
       setSelectedRow((prevSelectedRow) => prevSelectedRow + 1);
     }
-    if (e.key === 'ArrowUp' && selectedRow > 0) {
+    if (e.key === arrowUp && selectedRow > 0) {
       setSelectedRow((prevSelectedRow) => prevSelectedRow - 1);
     }
   };
 
-  const handleOnClickTableData = (tableCell) => {
-    setIsTableData((prevIsTableData) => tableCell);
+  const handleOnClickTableData = (tableCell, id) => {
     setIsSelected((prevIsSelected) => !prevIsSelected);
+    setSelectedId(id);
+    setIsTableData(tableCell);
   };
 
   function handleDragStart(e, tableRow) {
@@ -75,8 +83,8 @@ export default function BiographyTable() {
 
   function handleDrop(e, tableRow) {
     e.preventDefault();
-    setPersonRow(
-      personRow.map((person) => {
+    setPersonRow((prevPersonRow) => {
+      return prevPersonRow.map((person) => {
         if (person.id === tableRow.id) {
           return currentRow;
         }
@@ -86,8 +94,8 @@ export default function BiographyTable() {
         }
 
         return person;
-      })
-    );
+      });
+    });
   }
 
   return (
@@ -108,6 +116,7 @@ export default function BiographyTable() {
       handleDragEnd={handleDragEnd}
       handleDragOver={handleDragOver}
       handleDrop={handleDrop}
+      selectedId={selectedId}
     />
   );
 }

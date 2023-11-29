@@ -1,4 +1,6 @@
 import styles from './BiographyTable.module.scss';
+import FavoriteBookView from './FavoriteBookView';
+import cn from 'classnames';
 
 export default function BiographyTableView({
   addRow,
@@ -17,6 +19,7 @@ export default function BiographyTableView({
   handleDragEnd,
   handleDragOver,
   handleDrop,
+  selectedId,
 }) {
   return (
     <div className={styles.boxStyle}>
@@ -27,11 +30,6 @@ export default function BiographyTableView({
       >
         <thead>
           <tr>
-            {/* {Object.keys(personRow[0]).map((person, i) => (
-              <th className={styles.tableStyle} key={i}>
-                {person}
-              </th>
-            ))} */}
             <th className={styles.tableStyle}>Name</th>
             <th className={styles.tableStyle}>Age</th>
             <th className={styles.tableStyle}>City</th>
@@ -45,6 +43,7 @@ export default function BiographyTableView({
               className={`${
                 i === selectedRow ? styles.selectedRow : styles.rowStyle
               }`}
+              key={person.id}
               draggable={true}
               onDragStart={(e) => handleDragStart(e, person)}
               onDragLeave={(e) => handleDragLeave(e)}
@@ -53,46 +52,52 @@ export default function BiographyTableView({
               onDrop={(e) => handleDrop(e, person)}
             >
               <td
-                className={`${styles.tableStyle} ${
-                  isSelected && isTableData === person.name
-                    ? styles.tableCell
-                    : ''
-                }`}
-                onClick={() => handleOnClickTableData(person.name)}
+                className={cn(styles.tableStyle, {
+                  [styles.tableCell]:
+                    isSelected &&
+                    selectedId === person.id &&
+                    isTableData === person.name,
+                })}
+                onClick={() => handleOnClickTableData(person.name, person.id)}
               >
                 {person.name}
               </td>
               <td
-                className={`${styles.tableStyle} ${
-                  isSelected && isTableData === person.age
-                    ? styles.tableCell
-                    : ''
-                }`}
-                onClick={() => handleOnClickTableData(person.age)}
+                className={cn(styles.tableStyle, {
+                  [styles.tableCell]:
+                    isSelected &&
+                    selectedId === person.id &&
+                    isTableData === person.age,
+                })}
+                onClick={() => handleOnClickTableData(person.age, person.id)}
               >
                 {person.age}
               </td>
               <td
-                className={`${styles.tableStyle} ${
-                  isSelected && isTableData === person.city
-                    ? styles.tableCell
-                    : ''
-                }`}
-                onClick={() => handleOnClickTableData(person.city)}
+                className={cn(styles.tableStyle, {
+                  [styles.tableCell]:
+                    isSelected &&
+                    selectedId === person.id &&
+                    isTableData === person.city,
+                })}
+                onClick={() => handleOnClickTableData(person.city, person.id)}
               >
                 {person.city}
               </td>
               <td
-                className={`${styles.tableStyle} ${
-                  isSelected && isTableData === person.favoriteBooks
-                    ? styles.tableCell
-                    : ''
-                }`}
-                onClick={() => handleOnClickTableData(person.favoriteBooks)}
+                className={cn(styles.tableStyle, {
+                  [styles.tableCell]:
+                    isSelected &&
+                    selectedId === person.id &&
+                    isTableData === person.favoriteBooks,
+                })}
+                onClick={() =>
+                  handleOnClickTableData(person.favoriteBooks, person.id)
+                }
               >
                 <ul>
                   {person.favoriteBooks.map((book) => (
-                    <FavoriteBook book={book} />
+                    <FavoriteBookView book={book} />
                   ))}
                 </ul>
               </td>
@@ -107,8 +112,4 @@ export default function BiographyTableView({
       </div>
     </div>
   );
-}
-
-function FavoriteBook({ book }) {
-  return <li>{`${book.author}: ${book.book}`}</li>;
 }

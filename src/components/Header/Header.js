@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 import { featuredInLogos } from '../../constants/general';
-import iconCancel from '../../img/sprite.svg#icon-cancel';
-import iconMenu from '../../img/sprite.svg#icon-menu';
+// import iconCancel from '../../img/sprite.svg#icon-cancel';
+// import iconMenu from '../../img/sprite.svg#icon-menu';
 
 import headerImg from '../../img/hero-image.png';
-import { useState } from 'react';
 
 export default function Header() {
   const [imageError, setImageError] = useState(false);
@@ -21,14 +21,14 @@ export default function Header() {
     <header className="header">
       <Navigation />
 
-      <button className="btn-mobile-nav">
+      {/* <button type="button" className="btn-mobile-nav">
         <svg className="icon-mobile-nav" id="open">
           <use href={iconMenu} />
         </svg>
         <svg className="icon-mobile-nav" id="close">
           <use href={iconCancel} />
         </svg>
-      </button>
+      </button> */}
 
       <div className="header__title">
         <h1 className="heading-primary u-margin-bottom-big">

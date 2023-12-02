@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import FooterLinkView from './FooterLinkView';
 
@@ -28,7 +28,7 @@ const footerList = [
 ];
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer>
@@ -53,8 +53,9 @@ export default function Footer() {
               <p className="footer__text--privacy">Privacy</p>
             </div>
             <p className="footer__text--copyright">
-              Copyright <span className="year">{currentYear}</span> Ribbon Home
-              Inc, All Rights Reserved.
+              Copyright
+              <span className="year">{currentYear}</span>
+              Ribbon Home Inc, All Rights Reserved.
             </p>
           </div>
           <div className="footer__socials">
@@ -79,3 +80,8 @@ function FooterItem({ name, links }) {
     </nav>
   );
 }
+
+FooterItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf.isRequired,
+};

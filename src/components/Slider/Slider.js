@@ -21,6 +21,7 @@ export default function Slider() {
         <div className="solution__btn-container">
           {buttonSlider.map(({ name }) => (
             <button
+              type="button"
               className="solution__btn solution__btn--active"
               data-solution="0"
             >
@@ -41,10 +42,10 @@ export default function Slider() {
               </button> */}
         </div>
 
-        <button className="slider__btn slider__btn--left">
+        <button type="button" className="slider__btn slider__btn--left">
           <img src={arrowLeftIcon} alt="arrow left" />
         </button>
-        <button className="slider__btn slider__btn--right">
+        <button type="button" className="slider__btn slider__btn--right">
           <img src={arrowRightIcon} alt="arrow right" />
         </button>
       </div>
@@ -85,7 +86,10 @@ export default function Slider() {
                 Once your buyer is preapproved, upgrade your buying power to
                 cash to make your strongest offer, first.
               </p>
-              <button className="btn-white story__btn u-margin-bottom-biggest-1">
+              <button
+                type="button"
+                className="btn-white story__btn u-margin-bottom-biggest-1"
+              >
                 Learn more
               </button>
               <div className="story__icon">
@@ -131,7 +135,10 @@ export default function Slider() {
                 Once your buyer is preapproved, upgrade your buying power to
                 cash to make your strongest offer, first.
               </p>
-              <button className="btn-white story__btn u-margin-bottom-biggest-1">
+              <button
+                type="button"
+                className="btn-white story__btn u-margin-bottom-biggest-1"
+              >
                 Learn more
               </button>
               <div className="story__icon">
@@ -177,7 +184,10 @@ export default function Slider() {
                 Once your buyer is preapproved, upgrade your buying power to
                 cash to make your strongest offer, first.
               </p>
-              <button className="btn-white story__btn u-margin-bottom-biggest-1">
+              <button
+                type="button"
+                className="btn-white story__btn u-margin-bottom-biggest-1"
+              >
                 Learn more
               </button>
               <div className="story__icon">

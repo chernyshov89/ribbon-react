@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import person from '../../mocks/person';
 import { arrowUp, arrowDown } from '../../constants/hotkey';
 import BiographyTableView from './BiographyTableView';
-import { v4 as uuidv4 } from 'uuid';
 
 export default function BiographyTable() {
   const [personRow, setPersonRow] = useState(person);
@@ -30,8 +30,8 @@ export default function BiographyTable() {
   };
 
   const deleteRow = () => {
-    const deleteRow = personRow.slice(0, personRow.length - 1);
-    setPersonRow(deleteRow);
+    const deletePersonRow = personRow.slice(0, personRow.length - 1);
+    setPersonRow(deletePersonRow);
   };
 
   const sortWithSortMethod = () => {
@@ -41,8 +41,8 @@ export default function BiographyTable() {
 
   const sortWithoutSortMethod = () => {
     const sortRow = [...personRow];
-    for (let i = 0; i < sortRow.length; i++) {
-      for (let j = 0; j < sortRow.length - 1; j++) {
+    for (let i = 0; i < sortRow.length; i += 1) {
+      for (let j = 0; j < sortRow.length - 1; j += 1) {
         let box;
         if (sortRow[j].age > sortRow[j + 1].age) {
           box = sortRow[j + 1];
@@ -69,34 +69,34 @@ export default function BiographyTable() {
     setIsTableData(tableCell);
   };
 
-  function handleDragStart(e, tableRow) {
+  const handleDragStart = (e, tableRow) => {
     setCurrentRow(tableRow);
-  }
+  };
 
-  function handleDragLeave() {}
+  const handleDragLeave = () => {};
 
-  function handleDragEnd(e) {}
+  const handleDragEnd = () => {};
 
-  function handleDragOver(e) {
+  const handleDragOver = (e) => {
     e.preventDefault();
-  }
+  };
 
-  function handleDrop(e, tableRow) {
+  const handleDrop = (e, tableRow) => {
     e.preventDefault();
     setPersonRow((prevPersonRow) => {
-      return prevPersonRow.map((person) => {
-        if (person.id === tableRow.id) {
+      return prevPersonRow.map((prevPerson) => {
+        if (prevPerson.id === tableRow.id) {
           return currentRow;
         }
 
-        if (person.id === currentRow.id) {
+        if (prevPerson.id === currentRow.id) {
           return tableRow;
         }
 
-        return person;
+        return prevPerson;
       });
     });
-  }
+  };
 
   return (
     <BiographyTableView
@@ -120,19 +120,3 @@ export default function BiographyTable() {
     />
   );
 }
-
-// -	Зробити набір гарячих клавіш для підсвічування активного списку (Таблиця з біографією).
-// -	По кліку робити елемент активним (підсвічувати бордер або змінювати колір шрифту)
-// по повторному кліку робити елемент неактивним.
-// -	Зробити перетягування елементів списку мишею,
-// щоб можна було змінювати порядок вручну (DragAndDrop).
-// -	Додати події load та error для картинки. І виводити в консоль якщо
-// картинка завантажилася або сталася помилка
-
-// Завдання: На сторінці створити таблицю з біографією за роками.
-// Дані записати до масиву. Масив повинен складатися з об'єктів, щонайменше 2 рівня вкладеності.
-// Зробити сортування даних за кліком (без допомоги та за допомогою функцій сортування).
-// Додати дві кнопки, натисніть на першу додати новий елемент масиву,
-// і видалити його по кліку на другу.
-// Додати та прибрати елемент із об'єкта, вибрати елемент об'єкта за ключом.
-// Переписати частину об'єкта за допомогою spread оператора.

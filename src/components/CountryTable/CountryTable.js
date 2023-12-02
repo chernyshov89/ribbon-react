@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import styles from '../BiographyTable/BiographyTable.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
-import PropTypes from 'prop-types';
+import styles from '../BiographyTable/BiographyTable.module.scss';
 
 export default function CountryTable() {
   const [dataCountry, setDataCountry] = useState([]);
@@ -27,6 +26,7 @@ export default function CountryTable() {
               return data;
             } catch (err) {
               console.error(`Error for ${country}`, err);
+              return null;
             }
           })
         );

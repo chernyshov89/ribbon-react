@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Timer.module.scss';
 
 export default function Timer({ isStop }) {
@@ -29,3 +30,7 @@ export default function Timer({ isStop }) {
 
   return <p className={styles.timer}>{`${hours}:${minutes}:${seconds}`}</p>;
 }
+
+Timer.propTypes = {
+  isStop: PropTypes.bool.isRequired,
+};

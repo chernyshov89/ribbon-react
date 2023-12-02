@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import houseImg from '../../img/house.png';
 import { empowerIconList } from '../../constants/general';
 
@@ -28,7 +30,7 @@ export default function SectionEmpower() {
           <img src={houseImg} alt="pair near house" />
         </div>
         <div className="empower__text--container">
-          <p className="empower__buyers-text">Buyer's agents</p>
+          <p className="empower__buyers-text">Buyer&apos;s agents</p>
           <h3 className="heading-tertiary empower__heading">
             Give your buyers the certainty of cash
           </h3>
@@ -168,5 +170,13 @@ export default function SectionEmpower() {
 }
 
 function EmpowerButton({ children }) {
-  return <button className="empower__tab">{children}</button>;
+  return (
+    <button type="button" className="empower__tab">
+      {children}
+    </button>
+  );
 }
+
+EmpowerButton.propTypes = {
+  children: PropTypes.string.isRequired,
+};

@@ -1,15 +1,15 @@
+import PropTypes from 'prop-types';
+
+import { v4 as uuidv4 } from 'uuid';
+import cn from 'classnames';
 import styles from './BiographyTable.module.scss';
 import FavoriteBookView from './FavoriteBookView';
-import { v4 as uuidv4 } from 'uuid';
-
-import cn from 'classnames';
+import { NAME, AGE } from '../../constants/biographyTable';
 
 export default function BiographyTableView({
   addRow,
-  addRowWithPushMethod,
   deleteRow,
   sortWithSortMethod,
-  sortWithoutSortMethod,
   personRow,
   handleKeyDown,
   selectedRow,
@@ -26,6 +26,7 @@ export default function BiographyTableView({
   return (
     <div className={styles.boxStyle}>
       <table
+        role="grid"
         className={styles.tableStyle}
         onKeyDown={handleKeyDown}
         tabIndex={0}
@@ -46,7 +47,7 @@ export default function BiographyTableView({
                 i === selectedRow ? styles.selectedRow : styles.rowStyle
               }`}
               key={person.id}
-              draggable={true}
+              draggable
               onDragStart={(e) => handleDragStart(e, person)}
               onDragLeave={(e) => handleDragLeave(e)}
               onDragEnd={(e) => handleDragEnd(e)}
@@ -58,9 +59,9 @@ export default function BiographyTableView({
                   [styles.tableCell]:
                     isSelected &&
                     selectedId === person.id &&
-                    isTableData === person.name,
+                    isTableData === NAME,
                 })}
-                onClick={() => handleOnClickTableData(person.name, person.id)}
+                onClick={() => handleOnClickTableData(NAME, person.id)}
               >
                 {person.name}
               </td>
@@ -69,9 +70,9 @@ export default function BiographyTableView({
                   [styles.tableCell]:
                     isSelected &&
                     selectedId === person.id &&
-                    isTableData === person.age,
+                    isTableData === AGE,
                 })}
-                onClick={() => handleOnClickTableData(person.age, person.id)}
+                onClick={() => handleOnClickTableData(AGE, person.id)}
               >
                 {person.age}
               </td>
@@ -80,9 +81,9 @@ export default function BiographyTableView({
                   [styles.tableCell]:
                     isSelected &&
                     selectedId === person.id &&
-                    isTableData === person.city,
+                    isTableData === 'city',
                 })}
-                onClick={() => handleOnClickTableData(person.city, person.id)}
+                onClick={() => handleOnClickTableData('city', person.id)}
               >
                 {person.city}
               </td>
@@ -108,10 +109,34 @@ export default function BiographyTableView({
         </tbody>
       </table>
       <div className={styles.boxStyle}>
-        <button onClick={addRow}>Add Row</button>
-        <button onClick={deleteRow}>Delete Row</button>
-        <button onClick={sortWithoutSortMethod}>Sort Row</button>
+        <button type="button" onClick={addRow}>
+          Add Row
+        </button>
+        <button type="button" onClick={deleteRow}>
+          Delete Row
+        </button>
+        <button type="button" onClick={sortWithSortMethod}>
+          Sort Row
+        </button>
       </div>
     </div>
   );
 }
+
+BiographyTableView.propTypes = {
+  addRow: PropTypes.func.isRequired,
+  deleteRow: PropTypes.func.isRequired,
+  sortWithSortMethod: PropTypes.func.isRequired,
+  personRow: PropTypes.arrayOf.isRequired,
+  handleKeyDown: PropTypes.func.isRequired,
+  selectedRow: PropTypes.func.isRequired,
+  handleOnClickTableData: PropTypes.func.isRequired,
+  isTableData: PropTypes.string.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  handleDragStart: PropTypes.func.isRequired,
+  handleDragLeave: PropTypes.func.isRequired,
+  handleDragEnd: PropTypes.func.isRequired,
+  handleDragOver: PropTypes.func.isRequired,
+  handleDrop: PropTypes.func.isRequired,
+  selectedId: PropTypes.number.isRequired,
+};

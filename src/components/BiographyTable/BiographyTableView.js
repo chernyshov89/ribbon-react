@@ -1,5 +1,7 @@
 import styles from './BiographyTable.module.scss';
 import FavoriteBookView from './FavoriteBookView';
+import { v4 as uuidv4 } from 'uuid';
+
 import cn from 'classnames';
 
 export default function BiographyTableView({
@@ -97,7 +99,7 @@ export default function BiographyTableView({
               >
                 <ul>
                   {person.favoriteBooks.map((book) => (
-                    <FavoriteBookView book={book} />
+                    <FavoriteBookView key={uuidv4()} book={book} />
                   ))}
                 </ul>
               </td>

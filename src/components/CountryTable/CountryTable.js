@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from '../BiographyTable/BiographyTable.module.scss';
+import { v4 as uuidv4 } from 'uuid';
+
+import PropTypes from 'prop-types';
 
 export default function CountryTable() {
   const [dataCountry, setDataCountry] = useState([]);
@@ -50,7 +53,7 @@ export default function CountryTable() {
         </thead>
         <tbody>
           {dataCountry.map(({ name, flag, capital, population }) => (
-            <tr>
+            <tr key={uuidv4()}>
               <td className={styles.tableStyle}>{name.common}</td>
               <td className={styles.tableStyle}>{flag}</td>
               <td className={styles.tableStyle}>{capital}</td>

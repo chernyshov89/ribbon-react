@@ -9,13 +9,13 @@ export default function CountryTable() {
   const countryNames = ['ukraine', 'germany', 'usa', 'france', 'italia'];
 
   useEffect(() => {
-    const countryData = async function () {
+    async function countryData() {
       try {
         const countriesData = await Promise.all(
           countryNames.map(async (country) => {
             try {
               const res = await fetch(
-                `https://restcountries.com/v3.1/name/${country}`
+                `https://restcountries.com/v3.1/name/${country}`,
               );
               const [data] = await res.json();
 
@@ -28,14 +28,14 @@ export default function CountryTable() {
               console.error(`Error for ${country}`, err);
               return null;
             }
-          })
+          }),
         );
 
         setDataCountry(countriesData);
       } catch (err) {
         console.error(err);
       }
-    };
+    }
 
     countryData();
   }, []);
@@ -52,7 +52,9 @@ export default function CountryTable() {
           </tr>
         </thead>
         <tbody>
-          {dataCountry.map(({ name, flag, capital, population }) => (
+          {dataCountry.map(({
+            name, flag, capital, population 
+          }) => (
             <tr key={uuidv4()}>
               <td className={styles.tableStyle}>{name.common}</td>
               <td className={styles.tableStyle}>{flag}</td>

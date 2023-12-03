@@ -7,11 +7,11 @@ import BiographyTableView from './BiographyTableView';
 export default function BiographyTable() {
   const [personRow, setPersonRow] = useState(person);
   const [selectedRow, setSelectedRow] = useState(0);
-  const [isTableData, setIsTableData] = useState(null);
+  const [isTableData, setIsTableData] = useState('');
   const [isSelected, setIsSelected] = useState(true);
   const [currentRow, setCurrentRow] = useState(null);
 
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState('');
 
   const addRow = () => {
     setPersonRow((prevPersonRow) => [

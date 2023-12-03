@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import arrowLeftIcon from '../../img/arrow-left.png';
 import arrowRightIcon from '../../img/arrow-right.png';
 import familyImg from '../../img/family.png';
@@ -21,6 +23,7 @@ export default function Slider() {
         <div className="solution__btn-container">
           {buttonSlider.map(({ name }) => (
             <button
+              key={uuidv4()}
               type="button"
               className="solution__btn solution__btn--active"
               data-solution="0"

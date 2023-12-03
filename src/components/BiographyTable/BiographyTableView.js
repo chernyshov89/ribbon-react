@@ -57,9 +57,9 @@ export default function BiographyTableView({
               <td
                 className={cn(styles.tableStyle, {
                   [styles.tableCell]:
-                    isSelected &&
-                    selectedId === person.id &&
-                    isTableData === NAME,
+                    isSelected
+                    && selectedId === person.id
+                    && isTableData === NAME,
                 })}
                 onClick={() => handleOnClickTableData(NAME, person.id)}
               >
@@ -68,9 +68,9 @@ export default function BiographyTableView({
               <td
                 className={cn(styles.tableStyle, {
                   [styles.tableCell]:
-                    isSelected &&
-                    selectedId === person.id &&
-                    isTableData === AGE,
+                    isSelected
+                    && selectedId === person.id
+                    && isTableData === AGE,
                 })}
                 onClick={() => handleOnClickTableData(AGE, person.id)}
               >
@@ -79,9 +79,9 @@ export default function BiographyTableView({
               <td
                 className={cn(styles.tableStyle, {
                   [styles.tableCell]:
-                    isSelected &&
-                    selectedId === person.id &&
-                    isTableData === 'city',
+                    isSelected
+                    && selectedId === person.id
+                    && isTableData === 'city',
                 })}
                 onClick={() => handleOnClickTableData('city', person.id)}
               >
@@ -90,13 +90,11 @@ export default function BiographyTableView({
               <td
                 className={cn(styles.tableStyle, {
                   [styles.tableCell]:
-                    isSelected &&
-                    selectedId === person.id &&
-                    isTableData === person.favoriteBooks,
+                    isSelected
+                    && selectedId === person.id
+                    && isTableData === person.favoriteBooks,
                 })}
-                onClick={() =>
-                  handleOnClickTableData(person.favoriteBooks, person.id)
-                }
+                onClick={() => handleOnClickTableData(person.favoriteBooks, person.id)}
               >
                 <ul>
                   {person.favoriteBooks.map((book) => (
@@ -127,16 +125,32 @@ BiographyTableView.propTypes = {
   addRow: PropTypes.func.isRequired,
   deleteRow: PropTypes.func.isRequired,
   sortWithSortMethod: PropTypes.func.isRequired,
-  personRow: PropTypes.arrayOf.isRequired,
   handleKeyDown: PropTypes.func.isRequired,
-  selectedRow: PropTypes.func.isRequired,
+  selectedRow: PropTypes.number.isRequired,
   handleOnClickTableData: PropTypes.func.isRequired,
-  isTableData: PropTypes.string.isRequired,
+  isTableData: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]).isRequired,
   isSelected: PropTypes.bool.isRequired,
   handleDragStart: PropTypes.func.isRequired,
   handleDragLeave: PropTypes.func.isRequired,
   handleDragEnd: PropTypes.func.isRequired,
   handleDragOver: PropTypes.func.isRequired,
   handleDrop: PropTypes.func.isRequired,
-  selectedId: PropTypes.number.isRequired,
+  selectedId: PropTypes.string.isRequired,
+  personRow: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      age: PropTypes.number.isRequired,
+      city: PropTypes.string.isRequired,
+      favoriteBooks: PropTypes.arrayOf(
+        PropTypes.shape({
+          author: PropTypes.string.isRequired,
+          book: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    })
+  ).isRequired,
 };

@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const person = [
   {
-    id: 1,
+    id: uuidv4(),
     name: 'John',
     age: 37,
     city: 'London',
@@ -10,7 +12,7 @@ const person = [
     ],
   },
   {
-    id: 2,
+    id: uuidv4(),
     name: 'Alice',
     age: 30,
     city: 'New York',
@@ -20,7 +22,7 @@ const person = [
     ],
   },
   {
-    id: 3,
+    id: uuidv4(),
     name: 'Matilda',
     age: 23,
     city: 'Brooklyn',

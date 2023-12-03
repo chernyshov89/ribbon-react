@@ -1,7 +1,7 @@
-import withMoreLess from '../../hocs/withMoreLess';
+// import withMoreLess from '../../hocs/withMoreLess';
 
-function Text() {
-  return <p>dsfdsjnfkdsnjfkdskfndskfndsjkfnsdnjkfdsvcxvxcvxcvxcvcxvvcxvx</p>;
-}
+// function Text() {
+//   return <p>dsfdsjnfkdsnjfkdskfndskfndsjkfnsdnjkfdsvcxvxcvxcvxcvcxvvcxvx</p>;
+// }
 
-export default withMoreLess(Text, 10);
+// export default withMoreLess(Text);

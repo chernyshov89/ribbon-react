@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import PropTypes from 'prop-types';
 
 import FooterLinkView from './FooterLinkView';
@@ -39,7 +41,7 @@ export default function Footer() {
           </a>
 
           {footerList.map(({ name, links }) => (
-            <FooterItem name={name} links={links} />
+            <FooterItem key={uuidv4()} name={name} links={links} />
           ))}
         </div>
         <div className="footer__logos">
@@ -74,7 +76,7 @@ function FooterItem({ name, links }) {
       <p className="footer__heading">{name}</p>
       <ul className="footer__nav">
         {links.map((link) => (
-          <FooterLinkView link={link} />
+          <FooterLinkView key={uuidv4()} link={link} />
         ))}
       </ul>
     </nav>
@@ -83,5 +85,5 @@ function FooterItem({ name, links }) {
 
 FooterItem.propTypes = {
   name: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf.isRequired,
+  links: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

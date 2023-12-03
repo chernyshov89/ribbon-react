@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 
 import houseImg from '../../img/house.png';
@@ -20,7 +21,7 @@ export default function SectionEmpower() {
         </h2>
         <div className="empower__tab-container">
           {empowerButton.map((btn) => (
-            <EmpowerButton>{btn}</EmpowerButton>
+            <EmpowerButton key={uuidv4()}>{btn}</EmpowerButton>
           ))}
         </div>
       </div>
@@ -45,7 +46,7 @@ export default function SectionEmpower() {
 
         <div className="empower__icon--container">
           {empowerIconList.map(({ icon, alt, name }) => (
-            <div className="empower__icon--item">
+            <div key={uuidv4()} className="empower__icon--item">
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
@@ -72,7 +73,7 @@ export default function SectionEmpower() {
 
         <div className="empower__icon--container">
           {empowerIconList.map(({ icon, alt, name }) => (
-            <div className="empower__icon--item">
+            <div key={uuidv4()} className="empower__icon--item">
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
@@ -100,7 +101,7 @@ export default function SectionEmpower() {
 
         <div className="empower__icon--container">
           {empowerIconList.map(({ icon, alt, name }) => (
-            <div className="empower__icon--item">
+            <div key={uuidv4()} className="empower__icon--item">
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
@@ -128,7 +129,7 @@ export default function SectionEmpower() {
 
         <div className="empower__icon--container">
           {empowerIconList.map(({ icon, alt, name }) => (
-            <div className="empower__icon--item">
+            <div key={uuidv4()} className="empower__icon--item">
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
@@ -156,7 +157,7 @@ export default function SectionEmpower() {
 
         <div className="empower__icon--container">
           {empowerIconList.map(({ icon, alt, name }) => (
-            <div className="empower__icon--item">
+            <div key={uuidv4()} className="empower__icon--item">
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>

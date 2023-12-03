@@ -37,20 +37,21 @@ export default function SectionTestimonials() {
             className="testimonials__number"
             role="button"
             tabIndex={0}
-            onClick={() =>
-              setPurchasedCount(
-                (prevPurchasedCount) => prevPurchasedCount + 100
-              )
-            }
+            onClick={() => setPurchasedCount(
+              (prevPurchasedCount) => prevPurchasedCount + 100,
+            )}
             onKeyDown={(e) => {
               if (e.key === 'Space') {
                 setPurchasedCount(
-                  (prevPurchasedCount) => prevPurchasedCount + 100
+                  (prevPurchasedCount) => prevPurchasedCount + 100,
                 );
               }
             }}
           >
-            <h5>{purchasedCount}+</h5>
+            <h5>
+              {purchasedCount}
+              +
+            </h5>
             <p>Homes Purchased</p>
           </div>
           <div className="testimonials__number">

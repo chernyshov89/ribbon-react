@@ -1,15 +1,16 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 
-// function withMoreLess(MoreLessComponent) {
-//   return function () {
-//     const [isMore, setIsMore] = useState(false);
+function withMoreLess(MoreLessComponent) {
+  return function foo() {
+    const [isMore, setIsMore] = useState(false);
 
-//     function handleMore() {
-//       setIsMore((prevIsMore) => !prevIsMore);
-//     }
+    function handleMore() {
+      setIsMore((prevIsMore) => !prevIsMore);
+    }
+   
+    // eslint-disable-next-line
+    return <MoreLessComponent handleMore={handleMore} isMore={isMore} />;
+  };
+}
 
-//     return <MoreLessComponent handleMore={handleMore} />;
-//   };
-// }
-
-// export default withMoreLess;
+export default withMoreLess;

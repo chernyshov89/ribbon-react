@@ -8,7 +8,8 @@ import Footer from './components/Footer/Footer';
 import BiographyTable from './components/BiographyTable/BiographyTable';
 import Timer from './components/Timer/Timer';
 import CountryTable from './components/CountryTable/CountryTable';
-// import Text from './components/Text/Text';
+import Text from './components/Text/Text';
+import Text2 from './components/Text2/Text2';
 
 export default function App() {
   const [isShow, setIsShow] = useState(false);
@@ -32,7 +33,8 @@ export default function App() {
       <Footer />
       <BiographyTable />
       <CountryTable />
-      {/* <Text /> */}
+      <Text />
+      <Text2 />
     </div>
   );
 }

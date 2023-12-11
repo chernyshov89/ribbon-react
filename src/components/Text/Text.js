@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import styles from './Text.module.scss';
 import withMoreLess from '../../hocs/withMoreLess';
 
 function Text({ handleMore, isMore }) {
   return (
-    <div>
+    <div className={styles.text}>
       <p className="header__text">
         Daniella Down is a British actor, voice artist, copywriter, and now, 
         a podcast maker who grew up in Hong Kong and is now based in Amsterdam. 

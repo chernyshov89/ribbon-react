@@ -24,7 +24,35 @@
   --color-grey-12: #2b2b2b;
   --color-white: #fff;
   --color-black: #000;
+
+  --color-black-footer: #000;
+  --color-white-footer: #fff
+
+
 }
+
+.theme-dark {
+  --color-primary: #c7c1f3;
+  --color-primary-darker-2: #eceaf8;
+
+  --color-grey-1: #f5f4f2;
+  --color-grey-3: #636769;
+  --color-grey-4: #363b3d;
+  --color-grey-5: #f5f4f2;
+  --color-grey-9: #f5f4f2;
+
+  --color-grey-dark: #f5f4f2;
+  --color-white: #000;
+  --color-primary-light-2: #e3e6f9;
+  --color-primary-light-3: #323a5b;
+
+}
+  
+
+ 
+  
+
+
 
 // FONT
 $font-primary: 'Roboto', sans-serif;

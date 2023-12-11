@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import styles from '../Text/Text.module.scss';
 import withMoreLess from '../../hocs/withMoreLess';
 
 function Text2({ handleMore, isMore }) {
@@ -12,7 +13,7 @@ function Text2({ handleMore, isMore }) {
   const displayText = isMore ? text : `${text.split(' ').slice(0, 15).join(' ')}...`;
 
   return (
-    <div>
+    <div className={styles.text}>
       <span className="header__text">{displayText}</span>
       <button type="button" onClick={handleMore}>{isMore ? showLess : showMore}</button>
     </div>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import styles from './Timer.module.scss';
 
-export default function Timer({ isStop }) {
+export default function Timer() {
+  const [isStop, setIsStop] = useState(false);
+
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
@@ -28,9 +29,18 @@ export default function Timer({ isStop }) {
   const minutes = String(Math.trunc((timer % 3600) / 60)).padStart(2, 0);
   const seconds = String(Math.trunc(timer % 60)).padStart(2, 0);
 
-  return <p className={styles.timer}>{`${hours}:${minutes}:${seconds}`}</p>;
+  return (
+    <div className={styles.text}> 
+      <button
+        type="button"
+        onClick={() => setIsStop((prevIsStop) => !prevIsStop)}
+      >
+        Timer
+      </button>
+      <span className={styles.timer}>
+        {`${hours}:${minutes}:${seconds}`}
+      </span>
+      
+    </div>
+  );
 }
-
-Timer.propTypes = {
-  isStop: PropTypes.bool.isRequired,
-};

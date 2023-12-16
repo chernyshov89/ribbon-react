@@ -1,7 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
 import { navLinks } from '../../constants/general';
 
 export default function Navigation() {
+  const { t } = useTranslation();
+
   return (
     <nav className="nav">
       <ul className="nav__links">
@@ -11,12 +14,11 @@ export default function Navigation() {
               href={`#section--${i + 1}`}
               className={`nav__link ${i === navLinks.length - 1 ? 'btn' : ''}`}
             >
-              {link}
+              {t(link)}
             </a>
           </li>
         ))}
       </ul>
-      
     </nav>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import './i18n/index';
 import Header from './components/Header/Header';
 import SectionEmpower from './components/SectionEmpower/SectionEmpower';
 import SectionTestimonials from './components/SectionTestimonials/SectionTestimonials';
@@ -10,27 +10,18 @@ import Timer from './components/Timer/Timer';
 import CountryTable from './components/CountryTable/CountryTable';
 import Text from './components/Text/Text';
 import Text2 from './components/Text2/Text2';
-import styles from './components/Text/Text.module.scss';
 import ThemeSwitch from './components/ThemeButton/ThemeSwitch';
 import ToggleTheme from './context/Theme';
+import ToggleLanguageButton from './components/ToggleLanguage/ToggleLanguageButton';
 
 export default function App() {
-  const [isShow, setIsShow] = useState(false);
   return (
     <ToggleTheme>
       <div>
         <ThemeSwitch />
-        
-        <button
-          className={styles.text}
-          type="button"
-          onClick={() => setIsShow((prevIsShow) => !prevIsShow)}
-        >
-          Timer
-        </button>
-        <Timer isStop={isShow} />
+        <Timer />
+        <ToggleLanguageButton />
         <Header />
-
         <main>
           <SectionEmpower />
           <SectionTestimonials />
@@ -46,7 +37,3 @@ export default function App() {
     </ToggleTheme>
   );
 }
-
-// function EmpowerButton({ btnObj }) {
-//   return <button className="empower__tab">{btnObj}</button>;
-// }

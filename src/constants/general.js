@@ -8,12 +8,8 @@ import pencilIcon from '../img/pencil-icon.png';
 import dollarInIcon from '../img/dollar-in-icon.png';
 
 export const navLinks = [
-  'Agents',
-  'Homebuyers',
-  'Resources',
-  'Log In',
-  'Sign Up Now',
-];
+  'navLinks.agents', 'navLinks.homebuyers', 'navLinks.resources', 
+  'navLinks.logIn', 'navLinks.signUp'];
 
 export const featuredInLogos = [
   { logo: techcrunchLogo, alt: 'Feature In Logo 1' },

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-export default function FooterLinkView({ link }) {
+export default function FooterLinkView({ link, t }) {
   return (
     <li>
       <a href="#section" className="footer__link">
-        {link}
+        {t(link)}
       </a>
     </li>
   );
@@ -12,4 +12,5 @@ export default function FooterLinkView({ link }) {
 
 FooterLinkView.propTypes = {
   link: PropTypes.string.isRequired,
+  t: PropTypes.string.isRequired,
 };

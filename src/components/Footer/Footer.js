@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useTranslation } from 'react-i18next';
 
 import PropTypes from 'prop-types';
 
@@ -10,26 +11,57 @@ import facebookIcon from '../../img/facebook-icon.png';
 import instagramIcon from '../../img/instagram-icon.png';
 
 const footerList = [
-  { name: 'Agents', links: ['Buying', 'Listing', 'IOS App', 'Get Certified'] },
   {
-    name: 'Homebuyers',
+    name: 'footer.footerList.agents.name',
     links: [
-      'Buyers',
-      'Buy Before You Sell',
-      'New Construction',
-      'Rescue Your Closing',
-      'Sellers',
+      'footer.footerList.agents.buying', 
+      'footer.footerList.agents.listing', 
+      'footer.footerList.agents.IOSApp', 
+      'footer.footerList.agents.getCertified'
+    ] 
+  },
+  {
+    name: 'footer.footerList.homebuyers.name',
+    links: [
+      'footer.footerList.homebuyers.buyers',
+      'footer.footerList.homebuyers.buyBefore',
+      'footer.footerList.homebuyers.newConstruction',
+      'footer.footerList.homebuyers.rescueClosing',
+      'footer.footerList.homebuyers.sellers',
     ],
   },
-  { name: 'Partners', links: ['Lenders', 'Builders', 'Brokerages'] },
   {
-    name: 'Resources',
-    links: ['Pricing', 'FAQs', 'How it works', 'Blog', 'Guides', 'Webinars'],
+    name: 'footer.footerList.partners.name',
+    links: [
+      'footer.footerList.partners.lenders', 
+      'footer.footerList.partners.builders', 
+      'footer.footerList.partners.brokerages'
+    ] 
   },
-  { name: 'About', links: ['Mission', 'Culture', 'Careers', 'Press'] },
+  {
+    name: 'footer.footerList.resources.name',
+    links: [
+      'footer.footerList.resources.pricing', 
+      'footer.footerList.resources.FAQs', 
+      'footer.footerList.resources.howItWorks', 
+      'footer.footerList.resources.blog', 
+      'footer.footerList.resources.guides', 
+      'footer.footerList.resources.webinars'
+    ],
+  },
+  {
+    name: 'footer.footerList.about.name',
+    links: [
+      'footer.footerList.about.mission', 
+      'footer.footerList.about.culture', 
+      'footer.footerList.about.careers', 
+      'footer.footerList.about.press'
+    ] 
+  },
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -41,7 +73,7 @@ export default function Footer() {
           </a>
 
           {footerList.map(({ name, links }) => (
-            <FooterItem key={uuidv4()} name={name} links={links} />
+            <FooterItem key={uuidv4()} t={t} name={name} links={links} />
           ))}
         </div>
         <div className="footer__logos">
@@ -51,8 +83,8 @@ export default function Footer() {
           </div>
           <div className="footer__text">
             <div>
-              <p className="footer__text--terms">Terms</p>
-              <p className="footer__text--privacy">Privacy</p>
+              <p className="footer__text--terms">{t('footer.terms')}</p>
+              <p className="footer__text--privacy">{t('footer.privacy')}</p>
             </div>
             <p className="footer__text--copyright">
               Copyright
@@ -70,13 +102,13 @@ export default function Footer() {
   );
 }
 
-function FooterItem({ name, links }) {
+function FooterItem({ name, links, t }) {
   return (
     <nav className="footer__col">
-      <p className="footer__heading">{name}</p>
+      <p className="footer__heading">{t(name)}</p>
       <ul className="footer__nav">
         {links.map((link) => (
-          <FooterLinkView key={uuidv4()} link={link} />
+          <FooterLinkView key={uuidv4()} t={t} link={link} />
         ))}
       </ul>
     </nav>
@@ -86,4 +118,5 @@ function FooterItem({ name, links }) {
 FooterItem.propTypes = {
   name: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.string).isRequired,
+  t: PropTypes.string.isRequired,
 };

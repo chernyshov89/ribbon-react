@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import agentPhoto from '../../img/agent-photo.jpeg';
 import dogPhoto from '../../img/dog.png';
@@ -7,30 +8,28 @@ export default function SectionTestimonials() {
   const [purchasedCount, setPurchasedCount] = useState(7000);
   // const [agentsCount, setAgentsCount] = useState(30000);
   // const [buyingPowerCount, setBuyingPowerCount] = useState(5);
+  const { t } = useTranslation();
 
   return (
     <section className="section-testimonials" id="section--2">
       <div className="testimonials">
         <h2 className="heading-secondary testimonials__heading u-margin-bottom-biggest">
-          You&apos;re in good company
+          {t('testimonials.heading')}
         </h2>
         <p className="testimonials__text">
-          &quot;Ribbon is a huge advantage for you as the buyer&apos;s agent -
-          and definitely gives you the extra edge needed to have your
-          buyer&apos;s offer accepted.&quot;
+          {t('testimonials.testimonial')}
         </p>
 
         <div className="testimonials__details">
           <img src={agentPhoto} alt="agent" className="testimonials__photo" />
-          <h4 className="heading-4 testimonials__name">Edgar Gonzalez</h4>
-          <p className="testimonials__company">eXp Realty</p>
+          <h4 className="heading-4 testimonials__name">{t('testimonials.name')}</h4>
+          <p className="testimonials__company">{t('testimonials.position')}</p>
         </div>
         <div className="testimonials__comment">
-          Agents love us because we empower their buyers with cash and
-          don&apos;t compete for their commissions.
+          {t('testimonials.subHeading')}
         </div>
         <button type="button" className="btn-white testimonials__btn">
-          Learn More
+          {t('testimonials.button')}
         </button>
         <div className="testimonials__numbers">
           <div
@@ -52,15 +51,15 @@ export default function SectionTestimonials() {
               {purchasedCount}
               +
             </h5>
-            <p>Homes Purchased</p>
+            <p>{t('testimonials.overallNumbers.homesPurchased')}</p>
           </div>
           <div className="testimonials__number">
             <h5>3000 +</h5>
-            <p>Agents</p>
+            <p>{t('testimonials.overallNumbers.agents')}</p>
           </div>
           <div className="testimonials__number">
             <h5>$5 B+</h5>
-            <p>Buying Power</p>
+            <p>{t('testimonials.overallNumbers.buyingPower')}</p>
           </div>
         </div>
 

@@ -34,15 +34,15 @@ export default function SectionEmpower() {
           <img src={houseImg} alt="pair near house" />
         </div>
         <div className="empower__text--container">
-          <p className="empower__buyers-text">{t('empower.buyersAgents')}</p>
+          <p className="empower__buyers-text">{t('empower.buyersAgents.buyersAgents')}</p>
           <h3 className="heading-tertiary empower__heading">
-            {t('empower.cardHeading')}
+            {t('empower.buyersAgents.cardHeading')}
           </h3>
           <p className="empower__text">
-            {t('empower.subHeading')}
+            {t('empower.buyersAgents.subHeading')}
           </p>
           <a href="#!" className="btn empower__btn">
-            {t('empower.cardButton')}
+            {t('empower.buyersAgents.cardButton')}
           </a>
         </div>
 
@@ -62,14 +62,13 @@ export default function SectionEmpower() {
           <img src={houseImg} alt="pair near house" />
         </div>
         <div className="empower__text--container">
-          <p className="empower__buyers-text">Buyers</p>
-          <h3 className="heading-tertiary empower__heading">Tab 2</h3>
+          <p className="empower__buyers-text">{t('empower.buyers.buyers')}</p>
+          <h3 className="heading-tertiary empower__heading">{t('empower.buyers.cardHeading')}</h3>
           <p className="empower__text">
-            Waive common contingencies, including the home-sale contingency, to
-            allow your buyers to make their strongest offer in any market.
+            {t('empower.buyers.subHeading')}
           </p>
           <a href="#!" className="btn empower__btn">
-            Get Certified Today
+            {t('empower.buyers.cardButton')}
           </a>
         </div>
 
@@ -79,7 +78,7 @@ export default function SectionEmpower() {
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
-              <p>{name}</p>
+              <p>{t(name)}</p>
             </div>
           ))}
         </div>
@@ -90,14 +89,13 @@ export default function SectionEmpower() {
           <img src={houseImg} alt="pair near house" />
         </div>
         <div className="empower__text--container">
-          <p className="empower__buyers-text">Listing Agents</p>
-          <h3 className="heading-tertiary empower__heading">Tab 3</h3>
+          <p className="empower__buyers-text">{t('empower.listingAgents.listingAgents')}</p>
+          <h3 className="heading-tertiary empower__heading">{t('empower.listingAgents.cardHeading')}</h3>
           <p className="empower__text">
-            Waive common contingencies, including the home-sale contingency, to
-            allow your buyers to make their strongest offer in any market.
+            {t('empower.listingHeading.subHeading')}
           </p>
           <a href="#!" className="btn empower__btn">
-            Get Certified Today
+            {t('empower.listingAgents.cardButton')}
           </a>
         </div>
 
@@ -107,7 +105,7 @@ export default function SectionEmpower() {
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
-              <p>{name}</p>
+              <p>{t(name)}</p>
             </div>
           ))}
         </div>
@@ -118,14 +116,13 @@ export default function SectionEmpower() {
           <img src={houseImg} alt="pair near house" />
         </div>
         <div className="empower__text--container">
-          <p className="empower__buyers-text">Sellers</p>
-          <h3 className="heading-tertiary empower__heading">Tab 4</h3>
+          <p className="empower__buyers-text">{t('empower.sellers.sellers')}</p>
+          <h3 className="heading-tertiary empower__heading">{t('empower.sellers.cardHeading')}</h3>
           <p className="empower__text">
-            Waive common contingencies, including the home-sale contingency, to
-            allow your buyers to make their strongest offer in any market.
+            {t('empower.sellers.subheading')}
           </p>
           <a href="#!" className="btn empower__btn">
-            Get Certified Today
+            {t('empower.sellers.cardButton')}
           </a>
         </div>
 
@@ -135,7 +132,7 @@ export default function SectionEmpower() {
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
-              <p>{name}</p>
+              <p>{t(name)}</p>
             </div>
           ))}
         </div>
@@ -146,14 +143,13 @@ export default function SectionEmpower() {
           <img src={houseImg} alt="pair near house" />
         </div>
         <div className="empower__text--container">
-          <p className="empower__buyers-text">Loan officers</p>
-          <h3 className="heading-tertiary empower__heading">Tab 5</h3>
+          <p className="empower__buyers-text">{t('empower.loanOfficers.loanOfficers')}</p>
+          <h3 className="heading-tertiary empower__heading">{t('empower.loanOfficers.cardHeading')}</h3>
           <p className="empower__text">
-            Waive common contingencies, including the home-sale contingency, to
-            allow your buyers to make their strongest offer in any market.
+            {t('empower.loanOfficers.subHeading')}
           </p>
           <a href="#!" className="btn empower__btn">
-            Get Certified Today
+            {t('empower.loanOfficers.cardButton')}
           </a>
         </div>
 
@@ -163,7 +159,7 @@ export default function SectionEmpower() {
               <div className="empower__icon">
                 <img src={icon} alt={alt} />
               </div>
-              <p>{name}</p>
+              <p>{t(name)}</p>
             </div>
           ))}
         </div>

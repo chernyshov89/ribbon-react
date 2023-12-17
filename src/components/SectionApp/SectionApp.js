@@ -1,17 +1,19 @@
+import { useTranslation } from 'react-i18next';
 import AppStoreIcon from '../../img/app-store.png';
 import iphoneImg from '../../img/iphone.png';
 
 export default function SectionApp() {
+  const { t } = useTranslation();
+
   return (
     <section className="section-app" id="section--4">
       <div className="app">
         <div className="app__description">
           <h2 className="app__heading">
-            Everything you need is only a tap away
+            {t('sectionApp.heading')}
           </h2>
           <p className="app__text">
-            Ribbon let’s you write an offer anytime, anywhere — right from your
-            mobile device.
+            {t('sectionApp.subHeading')}
           </p>
           <div className="app__store--logo">
             <img src={AppStoreIcon} alt="app store" />

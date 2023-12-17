@@ -19,8 +19,8 @@ export default function App() {
     <ToggleTheme>
       <div>
         <ThemeSwitch />
-        <Timer />
         <ToggleLanguageButton />
+        <Timer />
         <Header />
         <main>
           <SectionEmpower />

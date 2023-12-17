@@ -20,7 +20,7 @@ export const featuredInLogos = [
 ];
 
 export const empowerIconList = [
-  { icon: dollarIcon, alt: 'dollar-icon', name: 'Keep Your Commission' },
-  { icon: pencilIcon, alt: 'pencil-icon', name: 'Write More Winning Offers' },
-  { icon: dollarInIcon, alt: 'dollar-in-icon', name: 'Guaranteed to Close' },
+  { icon: dollarIcon, alt: 'dollar-icon', name: 'empower.iconList.commission' },
+  { icon: pencilIcon, alt: 'pencil-icon', name: 'empower.iconList.winningOffers' },
+  { icon: dollarInIcon, alt: 'dollar-in-icon', name: 'empower.iconList.guarantee' },
 ];

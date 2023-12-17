@@ -11,22 +11,10 @@ export default function ToggleLanguageButton() {
 
   return (
     <div className={styles.text}>
-      <button
-        className="btn-white"
-        type="button"
-        disabled={i18n.language === LOCALS.EN} 
-        onClick={() => changeLanguage(LOCALS.EN)}
-      >
-        En
-      </button>
-      <button
-        type="button"
-        className="btn-white"
-        disabled={i18n.language === LOCALS.UA} 
-        onClick={() => changeLanguage(LOCALS.UA)}
-      >
-        Укр
-      </button>
+      <select value={i18n.language} onChange={(e) => changeLanguage(e.target.value)}>
+        <option value={LOCALS.EN}>EN</option>
+        <option value={LOCALS.UA}>UA</option>
+      </select>
     </div>
   );
 }

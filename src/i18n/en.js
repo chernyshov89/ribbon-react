@@ -14,15 +14,24 @@ export default {
     learnMore: 'Learn More',
     featuredIn: 'Featured in'
   },
-
+  empower: {
+    heading: 'Who we empower',
+    button: {
+      buyersAgents: "Buyer's agents",
+      buyers: 'Buyers',
+      listingAgents: 'Listing Agents',
+      sellers: 'Sellers',
+      loanOfficers: 'Loan officers'
+    },
+    buyersAgents: "Buyer's agents",
+    cardHeading: 'Give your buyers the certainty of cash',
+    subHeading: `Waive common contingencies, including the home-sale contingency, to
+    allow your buyers to make their strongest offer in any market.`,
+    cardButton: 'Get Certified Today',
+    iconList: {
+      commission: 'Keep Your Commission',
+      winningOffers: 'Write More Winning Offers',
+      guarantee: 'Guaranteed to Close'
+    }
+  }
 };
-
-// export default {
-//   navLinks: [
-//     'Agents',
-//     'Homebuyers',
-//     'Resources',
-//     'Log In',
-//     'Sign Up Now',
-//   ] 
-// };

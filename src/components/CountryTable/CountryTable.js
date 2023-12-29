@@ -1,47 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCountry } from '../../store/countries/slice';
 
 import styles from '../BiographyTable/BiographyTable.module.scss';
 
 export default function CountryTable() {
-  const [dataCountry, setDataCountry] = useState([]);
+  const dispatch = useDispatch();
+  const countryDates = useSelector((state) => state.country.data);
+  const { status, error } = useSelector((state) => state.country);
 
   const countryNames = ['ukraine', 'germany', 'usa', 'france', 'italia'];
 
   useEffect(() => {
-    async function countryData() {
-      try {
-        const countriesData = await Promise.all(
-          countryNames.map(async (country) => {
-            try {
-              const res = await fetch(
-                `https://restcountries.com/v3.1/name/${country}`,
-              );
-              const [data] = await res.json();
-
-              if (!res.ok) {
-                throw new Error(`ERROR ❌  ${res.status}`);
-              }
-
-              return data;
-            } catch (err) {
-              console.error(`Error for ${country}`, err);
-              return null;
-            }
-          }),
-        );
-
-        setDataCountry(countriesData);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    countryData();
-  }, []);
+    dispatch(fetchCountry(countryNames));
+  }, [dispatch]);
 
   return (
     <div className={styles.boxStyle}>
+
+      {status === 'loading' && <h2 style={{ fontSize: '50px' }}>Loading...</h2>}
+      {error && (
+      <h2>
+        An error occured: 
+        {error}
+      </h2>
+      )}
+          
       <table className={styles.tableStyle}>
         <thead>
           <tr>
@@ -52,7 +37,8 @@ export default function CountryTable() {
           </tr>
         </thead>
         <tbody>
-          {dataCountry.map(({
+      
+          {countryDates.map(({
             name, flag, capital, population 
           }) => (
             <tr key={uuidv4()}>

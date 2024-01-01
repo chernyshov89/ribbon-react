@@ -73,7 +73,7 @@ export default function Footer() {
           </a>
 
           {footerList.map(({ name, links }) => (
-            <FooterItem key={uuidv4()} t={t} name={name} links={links} />
+            <FooterItem key={uuidv4()} name={t(name)} links={links} />
           ))}
         </div>
         <div className="footer__logos">
@@ -102,13 +102,13 @@ export default function Footer() {
   );
 }
 
-function FooterItem({ name, links, t }) {
+function FooterItem({ name, links }) {
   return (
     <nav className="footer__col">
-      <p className="footer__heading">{t(name)}</p>
+      <p className="footer__heading">{name}</p>
       <ul className="footer__nav">
         {links.map((link) => (
-          <FooterLinkView key={uuidv4()} t={t} link={link} />
+          <FooterLinkView key={uuidv4()} link={link} />
         ))}
       </ul>
     </nav>
@@ -118,5 +118,4 @@ function FooterItem({ name, links, t }) {
 FooterItem.propTypes = {
   name: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.string).isRequired,
-  t: PropTypes.string.isRequired,
 };

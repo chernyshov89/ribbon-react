@@ -6,8 +6,7 @@ import dogPhoto from '../../img/dog.png';
 
 export default function SectionTestimonials() {
   const [purchasedCount, setPurchasedCount] = useState(7000);
-  // const [agentsCount, setAgentsCount] = useState(30000);
-  // const [buyingPowerCount, setBuyingPowerCount] = useState(5);
+ 
   const { t } = useTranslation();
 
   return (

@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
-export default function FooterLinkView({ link, t }) {
+export default function FooterLinkView({ link }) {
+  const { t } = useTranslation();
+
   return (
     <li>
       <a href="#section" className="footer__link">
@@ -12,5 +15,4 @@ export default function FooterLinkView({ link, t }) {
 
 FooterLinkView.propTypes = {
   link: PropTypes.string.isRequired,
-  t: PropTypes.string.isRequired,
 };

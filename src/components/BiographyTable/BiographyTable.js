@@ -24,9 +24,8 @@ export default function BiographyTable() {
   };
 
   const addRowWithPushMethod = () => {
-    const newRow = [...personRow];
-    newRow.push(personRow[Math.trunc(Math.random() * personRow.length)]);
-    setPersonRow(newRow);
+    const newItem = (personRow[Math.trunc(Math.random() * personRow.length)]);
+    setPersonRow((prevPersonRow) => [...prevPersonRow, ...newItem]);
   };
 
   const deleteRow = () => {

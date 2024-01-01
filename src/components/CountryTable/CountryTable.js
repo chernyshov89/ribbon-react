@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountry } from '../../store/countries/slice';
@@ -6,6 +7,7 @@ import { fetchCountry } from '../../store/countries/slice';
 import styles from '../BiographyTable/BiographyTable.module.scss';
 
 export default function CountryTable() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const countryDates = useSelector((state) => state.country.data);
   const { status, error } = useSelector((state) => state.country);
@@ -30,10 +32,10 @@ export default function CountryTable() {
       <table className={styles.tableStyle}>
         <thead>
           <tr>
-            <th className={styles.tableStyle}>Country</th>
-            <th className={styles.tableStyle}>Flag</th>
-            <th className={styles.tableStyle}>Capital</th>
-            <th className={styles.tableStyle}>Population</th>
+            <th className={styles.tableStyle}>{t('countryTable.country')}</th>
+            <th className={styles.tableStyle}>{t('countryTable.flag')}</th>
+            <th className={styles.tableStyle}>{t('countryTable.capital')}</th>
+            <th className={styles.tableStyle}>{t('countryTable.population')}</th>
           </tr>
         </thead>
         <tbody>

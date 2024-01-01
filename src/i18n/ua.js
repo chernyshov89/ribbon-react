@@ -182,4 +182,23 @@ export default {
     terms: 'Умови',
     privacy: 'Конфіденційність'
   },
+
+  biographyTable: {
+    name: 'Імʼя',
+    age: 'Вік',
+    city: 'Місто',
+    books: 'Улюблені книжки',
+    button: {
+      addRow: 'Додати строку',
+      deleteRow: 'Видалити строку',
+      sortRow: 'Відсортувати',
+    }
+  },
+
+  countryTable: {
+    country: 'Країна',
+    flag: 'Прапор',
+    capital: 'Столиця',
+    population: 'Населення',
+  }
 };

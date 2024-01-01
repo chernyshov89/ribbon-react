@@ -183,4 +183,24 @@ export default {
     terms: 'Terms',
     privacy: 'Privacy'
   },
+
+  biographyTable: {
+    name: 'Name',
+    age: 'Age',
+    city: 'City',
+    books: 'Favorite books',
+    button: {
+      addRow: 'Add Row',
+      deleteRow: 'Delete Row',
+      sortRow: 'Sort Row',
+
+    }
+  },
+
+  countryTable: {
+    country: 'Country',
+    flag: 'Flag',
+    capital: 'Capital',
+    population: 'Population',
+  }
 };

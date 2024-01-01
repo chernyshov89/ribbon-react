@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 import styles from './BiographyTable.module.scss';
@@ -23,6 +24,8 @@ export default function BiographyTableView({
   handleDrop,
   selectedId,
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.boxStyle}>
       <table
@@ -33,10 +36,10 @@ export default function BiographyTableView({
       >
         <thead>
           <tr>
-            <th className={styles.tableStyle}>Name</th>
-            <th className={styles.tableStyle}>Age</th>
-            <th className={styles.tableStyle}>City</th>
-            <th className={styles.tableStyle}>Favorite Books</th>
+            <th className={styles.tableStyle}>{t('biographyTable.name')}</th>
+            <th className={styles.tableStyle}>{t('biographyTable.age')}</th>
+            <th className={styles.tableStyle}>{t('biographyTable.city')}</th>
+            <th className={styles.tableStyle}>{t('biographyTable.books')}</th>
           </tr>
         </thead>
 
@@ -108,13 +111,13 @@ export default function BiographyTableView({
       </table>
       <div className={styles.boxStyle}>
         <button type="button" onClick={addRow}>
-          Add Row
+          {t('biographyTable.button.addRow')}
         </button>
         <button type="button" onClick={deleteRow}>
-          Delete Row
+          {t('biographyTable.button.deleteRow')}
         </button>
         <button type="button" onClick={sortWithSortMethod}>
-          Sort Row
+          {t('biographyTable.button.sortRow')}
         </button>
       </div>
     </div>

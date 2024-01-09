@@ -4,11 +4,10 @@ function withMoreLess(MoreLessComponent) {
   return function foo() {
     const [isMore, setIsMore] = useState(false);
 
-    function handleMore() {
+    const handleMore = () => {
       setIsMore((prevIsMore) => !prevIsMore);
-    }
-   
-    // eslint-disable-next-line
+    };
+    
     return <MoreLessComponent handleMore={handleMore} isMore={isMore} />;
   };
 }

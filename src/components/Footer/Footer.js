@@ -1,9 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from 'react-i18next';
 
-import PropTypes from 'prop-types';
-
-import FooterLinkView from './FooterLinkView';
+import FooterItem from './FooterItem';
 
 import footerLogo1 from '../../img/footer-logo--1.png';
 import footerLogo2 from '../../img/footer-logo--2.png';
@@ -60,9 +58,10 @@ const footerList = [
   },
 ];
 
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
   const { t } = useTranslation();
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer>
@@ -101,21 +100,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-function FooterItem({ name, links }) {
-  return (
-    <nav className="footer__col">
-      <p className="footer__heading">{name}</p>
-      <ul className="footer__nav">
-        {links.map((link) => (
-          <FooterLinkView key={uuidv4()} link={link} />
-        ))}
-      </ul>
-    </nav>
-  );
-}
-
-FooterItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(PropTypes.string).isRequired,
-};

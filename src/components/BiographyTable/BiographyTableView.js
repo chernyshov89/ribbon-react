@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import cn from 'classnames';
 import styles from './BiographyTable.module.scss';
 import FavoriteBookView from './FavoriteBookView';
-import { NAME, AGE } from '../../constants/biographyTable';
+import { NAME, AGE, CITY } from '../../constants/biographyTable';
 
 export default function BiographyTableView({
   addRow,
@@ -84,9 +84,9 @@ export default function BiographyTableView({
                   [styles.tableCell]:
                     isSelected
                     && selectedId === person.id
-                    && isTableData === 'city',
+                    && isTableData === CITY,
                 })}
-                onClick={() => handleOnClickTableData('city', person.id)}
+                onClick={() => handleOnClickTableData(CITY, person.id)}
               >
                 {person.city}
               </td>

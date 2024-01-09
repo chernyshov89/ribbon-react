@@ -7,7 +7,7 @@ import SectionApp from './components/SectionApp/SectionApp';
 import Footer from './components/Footer/Footer';
 import BiographyTable from './components/BiographyTable/BiographyTable';
 import Timer from './components/Timer/Timer';
-import CountryTable from './components/CountryTable/CountryTable';
+import CountryTable from './components/CountryTable/CountryTable.1';
 import Text from './components/Text/Text';
 import Text2 from './components/Text2/Text2';
 import ThemeSwitch from './components/ThemeButton/ThemeSwitch';

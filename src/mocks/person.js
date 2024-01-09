@@ -26,7 +26,7 @@ const person = [
     name: 'Matilda',
     age: 23,
     city: 'Brooklyn',
-    favoriteBooks: [
+    favoriteBooks: [      
       { author: 'Stephen King', book: 'It' },
       { author: 'Rowling', book: 'Harry Potter' },
     ],

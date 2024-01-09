@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import agentPhoto from '../../img/agent-photo.jpeg';
 import dogPhoto from '../../img/dog.png';
+import { SPACE } from '../../constants/hotkey';
 
 export default function SectionTestimonials() {
   const [purchasedCount, setPurchasedCount] = useState(7000);
@@ -39,7 +40,7 @@ export default function SectionTestimonials() {
               (prevPurchasedCount) => prevPurchasedCount + 100,
             )}
             onKeyDown={(e) => {
-              if (e.key === 'Space') {
+              if (e.key === SPACE) {
                 setPurchasedCount(
                   (prevPurchasedCount) => prevPurchasedCount + 100,
                 );

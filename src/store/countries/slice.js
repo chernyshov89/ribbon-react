@@ -2,22 +2,17 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchCountry = createAsyncThunk(
   'country/fetchCountry',
-  async (countryNames, { rejectWithValue }) => {
+  async (countryNames) => {
     const countriesData = await Promise.all(
       countryNames.map(async (country) => {
-        try {
-          const response = await fetch(
-            `https://restcountries.com/v3.1/name/${country}`,
-          );
-          const [data] = await response.json();
-
-          if (!response.ok) {
-            throw new Error('ERROR ❌');
-          }
-          return data;
-        } catch (error) {
-          return rejectWithValue(error.message);
+        const response = await fetch(
+          `https://restcountries.com/v3.1/name/${country}`,
+        );
+        if (!response.ok) {
+          throw new Error('ERROR ❌');
         }
+        const [data] = await response.json();
+        return data;
       }),
     );
     return countriesData;
@@ -48,7 +43,7 @@ const countrySlice = createSlice({
       })
       .addCase(fetchCountry.rejected, (state, action) => {
         state.status = 'rejected';
-        state.error = action.payload;
+        state.error = action.error.message;
       });
   }
 });
